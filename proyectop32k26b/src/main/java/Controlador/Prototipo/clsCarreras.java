@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package Controlador.controladorPlanilla;
+package Controlador.Prototipo;
 
 import java.sql.Date;
 
@@ -10,31 +10,36 @@ import java.sql.Date;
  *
  * @author marlo
  */
-public class clsEmpleados {
+public class clsCarreras {
     
     private int empcodigo;
     private String empnombre;
+    private String empdpi;
     private int puecodigo;
+    private Date empfecha_ingreso;
     private int empestado;
     
-     public clsEmpleados() {
+     public clsCarreras() {
     }
 
-    public clsEmpleados(int empcodigo) {
+    public clsCarreras(int empcodigo) {
         this.empcodigo = empcodigo;
     }
 
-    public clsEmpleados(String empnombre, String empdpi, int puecodigo, Date empfecha_ingreso, int empestado) {
+    public clsCarreras(String empnombre, String empdpi, int puecodigo, Date empfecha_ingreso, int empestado) {
         this.empnombre = empnombre;
+        this.empdpi = empdpi;
         this.puecodigo = puecodigo;
+        this.empfecha_ingreso = empfecha_ingreso;
         this.empestado = empestado;
     }
 
-    public clsEmpleados(int empcodigo, String empnombre, String empdpi, int puecodigo, Date empfecha_ingreso, int empestado) {
+    public clsCarreras(int empcodigo, String empnombre, String empdpi, int puecodigo, Date empfecha_ingreso, int empestado) {
         this.empcodigo = empcodigo;
         this.empnombre = empnombre;
+        this.empdpi = empdpi;
         this.puecodigo = puecodigo;
-
+        this.empfecha_ingreso = empfecha_ingreso;
         this.empestado = empestado;
     }
 
@@ -54,9 +59,13 @@ public class clsEmpleados {
         this.empnombre = empnombre;
     }
 
-    
+    public String getEmpdpi() {
+        return empdpi;
+    }
 
-    
+    public void setEmpdpi(String empdpi) {
+        this.empdpi = empdpi;
+    }
 
     public int getPuecodigo() {
         return puecodigo;
@@ -66,10 +75,14 @@ public class clsEmpleados {
         this.puecodigo = puecodigo;
     }
 
-    
-    
+    public Date getEmpfecha_ingreso() {
+        return empfecha_ingreso;
+    }
 
-   
+    public void setEmpfecha_ingreso(Date empfecha_ingreso) {
+        this.empfecha_ingreso = empfecha_ingreso;
+    }
+
     public int getEmpestado() {
         return empestado;
     }
@@ -83,30 +96,13 @@ public class clsEmpleados {
         return "Empleados{" +
                 "empcodigo=" + empcodigo +
                 ", empnombre='" + empnombre + '\'' +
+                ", empdpi='" + empdpi + '\'' +
                 ", puecodigo=" + puecodigo +
+                ", empfecha_ingreso=" + empfecha_ingreso +
                 ", empestado=" + empestado +
                 '}';
     }
-
-    public Object getFacultad() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
-
-    public String getEmpdpi() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
-
-    public Object getEmpfecha_ingreso() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
-
-    public void setEmpdpi(String trim) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
-
-    public void setEmpfecha_ingreso(Date valueOf) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
+    
     
     
 }

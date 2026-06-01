@@ -2,23 +2,21 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package Modelo.modeloPlanilla;
+package Modelo.Prototipo;
 
-import Controlador.controladorPlanilla.clsEmpleados;
+import Controlador.Prototipo.clsCarreras;
 import Controlador.clsBitacora;
+import java.util.List;
 import Modelo.Conexion;
 import java.sql.*;
 import java.util.ArrayList;
-import java.util.List;
 
 /**
  *
  * @author marlo
  */
-public class EmpleadosDAO {
-    
-    
-    
+public class CarrerasDAO {
+
     private static final String SQL_SELECT =
             "SELECT empcodigo, empnombre, empdpi, puecodigo, empfecha_ingreso, empestado FROM empleados";
 
@@ -48,11 +46,11 @@ public class EmpleadosDAO {
             "DELETE FROM bitacora WHERE bitcodigo=?";
 
 
-    public List<clsEmpleados> obtenerEmpleados(clsBitacora bitacora) {
+    public List<clsCarreras> obtenerEmpleados(clsBitacora bitacora) {
         Connection conn = null;
         PreparedStatement stmt = null;
         ResultSet rs = null;
-        List<clsEmpleados> lista = new ArrayList<>();
+        List<clsCarreras> lista = new ArrayList<>();
 
         try {
             conn = Conexion.getConnection();
@@ -60,7 +58,7 @@ public class EmpleadosDAO {
             rs = stmt.executeQuery();
 
             while (rs.next()) {
-                clsEmpleados e = new clsEmpleados();
+                clsCarreras e = new clsCarreras();
 
                 e.setEmpcodigo(rs.getInt("empcodigo"));
                 e.setEmpnombre(rs.getString("empnombre"));
@@ -86,7 +84,7 @@ public class EmpleadosDAO {
         return lista;
     }
 
-    public int insertarEmpleado(clsEmpleados empleado, clsBitacora bitacora) {
+    public int insertarEmpleado(clsCarreras empleado, clsBitacora bitacora) {
         Connection conn = null;
         PreparedStatement stmt = null;
         int rows = 0;
@@ -116,7 +114,7 @@ public class EmpleadosDAO {
         return rows;
     }
 
-    public int actualizarEmpleado(clsEmpleados empleado, clsBitacora bitacora) {
+    public int actualizarEmpleado(clsCarreras empleado, clsBitacora bitacora) {
         Connection conn = null;
         PreparedStatement stmt = null;
         int rows = 0;
@@ -147,7 +145,7 @@ public class EmpleadosDAO {
         return rows;
     }
 
-    public int eliminarEmpleado(clsEmpleados empleado, clsBitacora bitacora) {
+    public int eliminarEmpleado(clsCarreras empleado, clsBitacora bitacora) {
         Connection conn = null;
         PreparedStatement stmt = null;
         int rows = 0;
@@ -173,11 +171,11 @@ public class EmpleadosDAO {
         return rows;
     }
 
-    public clsEmpleados obtenerEmpleadoPorId(int id, clsBitacora bitacora) {
+    public clsCarreras obtenerEmpleadoPorId(int id, clsBitacora bitacora) {
         Connection conn = null;
         PreparedStatement stmt = null;
         ResultSet rs = null;
-        clsEmpleados empleado = null;
+        clsCarreras empleado = null;
 
         try {
             conn = Conexion.getConnection();
@@ -187,7 +185,7 @@ public class EmpleadosDAO {
             rs = stmt.executeQuery();
 
             if (rs.next()) {
-                empleado = new clsEmpleados();
+                empleado = new clsCarreras();
 
                 empleado.setEmpcodigo(rs.getInt("empcodigo"));
                 empleado.setEmpnombre(rs.getString("empnombre"));
@@ -327,6 +325,11 @@ public class EmpleadosDAO {
 
         return rows;
     }
+
+    public List<clsCarreras> obtenerCarreras(clsBitacora bitacora) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+    
     
     
 }
