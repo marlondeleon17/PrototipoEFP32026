@@ -95,7 +95,7 @@ public class frmLogin extends javax.swing.JFrame {
 
         jLabel4.setText("Departamento");
 
-        cboOpciones.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Bancos", "Cuentas Corrientes", "Inventarios", "Seguridad", "Comercio", "Comisiones de ventas", "Planillas", "Logistica", " " }));
+        cboOpciones.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Bancos", "Cuentas Corrientes", "Inventarios", "Seguridad", "Comercio", "Comisiones de ventas", "Planillas", "Logistica", "PrototipoEFP32026" }));
         cboOpciones.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cboOpcionesActionPerformed(evt);
@@ -291,6 +291,17 @@ case "Comisiones de ventas":
         System.out.println(e);
     }
     break;
+    
+    case "PrototipoEFP32026":
+    try {
+        MdiPlanillas menu = new MdiPlanillas();
+        menu.setVisible(true);
+        this.dispose();
+    } catch (Exception e) {
+        System.out.println(e);
+    }
+    break;
+    
 
 default:
     break;

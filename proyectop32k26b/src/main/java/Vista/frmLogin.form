@@ -160,7 +160,7 @@
             <StringItem index="5" value="Comisiones de ventas"/>
             <StringItem index="6" value="Planillas"/>
             <StringItem index="7" value="Logistica"/>
-            <StringItem index="8" value=" "/>
+            <StringItem index="8" value="PrototipoEFP32026"/>
           </StringArray>
         </Property>
       </Properties>
