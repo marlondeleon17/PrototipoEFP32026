@@ -216,6 +216,11 @@ public class frmCarreras extends javax.swing.JFrame {
         });
 
         jButton5.setText("Reportes");
+        jButton5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton5ActionPerformed(evt);
+            }
+        });
 
         jButton6.setText("Buscar");
         jButton6.addActionListener(new java.awt.event.ActionListener() {
@@ -731,6 +736,25 @@ public class frmCarreras extends javax.swing.JFrame {
 
         }
     }//GEN-LAST:event_btnayudaActionPerformed
+
+    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+        // TODO add your handling code here:
+        Connection conn = null;
+        Map p = new HashMap();
+        JasperReport report;
+        JasperPrint print;
+        try {
+            conn = Conexion.getConnection();
+            report = JasperCompileManager.compileReport(new File("").getAbsolutePath()
+                + "/src/main/java/Reportes/ReportesPlanilla/Carreras.jrxml");
+            print = JasperFillManager.fillReport(report, p, conn);
+            JasperViewer view = new JasperViewer(print, false);
+            view.setTitle("Reporte Prueba");
+            view.setVisible(true);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }//GEN-LAST:event_jButton5ActionPerformed
 
     
      public void habilitarBotones() {
