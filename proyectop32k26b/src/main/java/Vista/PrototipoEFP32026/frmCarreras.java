@@ -117,7 +117,7 @@ public class frmCarreras extends javax.swing.JFrame {
 
         txtCodigo.setText("");
         txtNombre.setText("");
-        txtFacultad.setText("");
+        txtDPI.setText("");
         txtEstatus.setText("");
         txtBuscar.setText("");
     }
@@ -140,16 +140,17 @@ public class frmCarreras extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
         txtCodigo = new javax.swing.JTextField();
         txtNombre = new javax.swing.JTextField();
-        txtFacultad = new javax.swing.JTextField();
+        txtDPI = new javax.swing.JTextField();
         txtEstatus = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
+        btnRegistrar = new javax.swing.JButton();
+        btnModificar = new javax.swing.JButton();
+        btnEliminar = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
         jButton5 = new javax.swing.JButton();
         jButton6 = new javax.swing.JButton();
         txtBuscar = new javax.swing.JTextField();
         btnSalida = new javax.swing.JButton();
+        btnayuda = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -180,22 +181,60 @@ public class frmCarreras extends javax.swing.JFrame {
             }
         });
 
-        jButton1.setText("Registrar");
+        txtDPI.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtDPIActionPerformed(evt);
+            }
+        });
 
-        jButton2.setText("Modificar");
+        btnRegistrar.setText("Registrar");
+        btnRegistrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRegistrarActionPerformed(evt);
+            }
+        });
 
-        jButton3.setText("Eliminar");
+        btnModificar.setText("Modificar");
+        btnModificar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnModificarActionPerformed(evt);
+            }
+        });
+
+        btnEliminar.setText("Eliminar");
+        btnEliminar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEliminarActionPerformed(evt);
+            }
+        });
 
         jButton4.setText("Limpiar");
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
+            }
+        });
 
         jButton5.setText("Reportes");
 
         jButton6.setText("Buscar");
+        jButton6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton6ActionPerformed(evt);
+            }
+        });
 
         btnSalida.setText("Salida");
         btnSalida.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnSalidaActionPerformed(evt);
+            }
+        });
+
+        btnayuda.setText("AYUDA");
+        btnayuda.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnayudaActionPerformed(evt);
             }
         });
 
@@ -206,7 +245,9 @@ public class frmCarreras extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(318, 318, 318)
                 .addComponent(jLabel1)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btnayuda)
+                .addGap(26, 26, 26))
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
@@ -228,19 +269,19 @@ public class frmCarreras extends javax.swing.JFrame {
                                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                            .addComponent(jButton1)
+                                            .addComponent(btnRegistrar)
                                             .addComponent(jLabel5)
                                             .addComponent(jButton4))
                                         .addGap(32, 32, 32)))
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addComponent(txtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(txtCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(txtFacultad, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(txtDPI, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(txtEstatus, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addGroup(layout.createSequentialGroup()
-                                        .addComponent(jButton2)
+                                        .addComponent(btnModificar)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(jButton3))
+                                        .addComponent(btnEliminar))
                                     .addComponent(jButton5)))
                             .addGroup(layout.createSequentialGroup()
                                 .addContainerGap()
@@ -255,7 +296,8 @@ public class frmCarreras extends javax.swing.JFrame {
                 .addGap(19, 19, 19)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel1)
-                    .addComponent(btnSalida))
+                    .addComponent(btnSalida)
+                    .addComponent(btnayuda))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(24, 24, 24)
@@ -269,16 +311,16 @@ public class frmCarreras extends javax.swing.JFrame {
                         .addGap(29, 29, 29)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel4)
-                            .addComponent(txtFacultad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(txtDPI, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(24, 24, 24)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel5)
                             .addComponent(txtEstatus, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(76, 76, 76)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jButton1)
-                            .addComponent(jButton2)
-                            .addComponent(jButton3))
+                            .addComponent(btnRegistrar)
+                            .addComponent(btnModificar)
+                            .addComponent(btnEliminar))
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jButton4)
@@ -306,6 +348,422 @@ public class frmCarreras extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtCodigoActionPerformed
 
+    private void btnRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarActionPerformed
+        // TODO add your handling code here:
+        if(txtNombre.getText().trim().isEmpty() ||
+            txtDPI.getText().trim().isEmpty() ||
+            txtEstatus.getText().trim().isEmpty()){
+
+            JOptionPane.showMessageDialog(null, "Complete los campos");
+            return;
+        }
+
+        try {
+
+            clsCarreras empleado = new clsCarreras();
+
+            empleado.setEmpnombre(txtNombre.getText().trim());
+
+            empleado.setEmpdpi(txtDPI.getText().trim());
+
+            empleado.setPuecodigo(
+                Integer.parseInt(txtEstatus.getText())
+            );
+
+   
+
+            // Estado desde ComboBox
+            if(cboEstatus.getSelectedItem().toString().equals("Activo")){
+
+                empleado.setEmpestado(1);
+
+            }else{
+
+                empleado.setEmpestado(0);
+            }
+
+            CarrerasDAO dao = new CarrerasDAO();
+
+            clsBitacora bitacora = crearBitacora("Insertar empleado");
+
+            int resultado = dao.insertarEmpleado(empleado, bitacora);
+
+            if(resultado > 0){
+                
+            BitacoraPlanillaDAO daoBitacora =
+            new BitacoraPlanillaDAO();
+
+            clsBitacoraPlanilla bitacoraPlanilla =
+            new clsBitacoraPlanilla();
+
+            bitacoraPlanilla.setCodigo(6003);
+
+            bitacoraPlanilla.setAccion("Registrar");
+
+            bitacoraPlanilla.setTablaAfectada("empleados");
+
+            bitacoraPlanilla.setDescripcion(
+            "Se registró un empleado"
+            );
+
+            bitacoraPlanilla.setUsuario("admin");
+
+            daoBitacora.insertarBitacora(
+            bitacoraPlanilla
+            );
+
+            
+
+
+                llenadoDeTablas();
+
+                limpiarTextos();
+
+            }else{
+
+                JOptionPane.showMessageDialog(null,
+                    "No se pudo registrar.\n" +
+                    "Verifique:\n" +
+                    "- DPI duplicado\n" +
+                    "- Puesto existente\n" +
+                    "- Bitácora\n" +
+                    "- Fecha");
+            }
+
+        } catch (NumberFormatException e) {
+
+            JOptionPane.showMessageDialog(null, "Código de puesto inválido");
+
+        } catch (IllegalArgumentException e) {
+
+            JOptionPane.showMessageDialog(null,
+                "Fecha inválida. Use formato YYYY-MM-DD");
+
+        } catch (Exception e) {
+
+            JOptionPane.showMessageDialog(null,
+                "Error: " + e.getMessage());
+        }
+    }//GEN-LAST:event_btnRegistrarActionPerformed
+
+    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
+        // TODO add your handling code here:
+        if(txtBuscar.getText().trim().isEmpty()){
+
+            JOptionPane.showMessageDialog(null, "Ingrese un ID");
+            return;
+        }
+
+        try {
+
+            int id = Integer.parseInt(txtBuscar.getText());
+
+            CarrerasDAO dao = new CarrerasDAO();
+
+            clsBitacora bitacora = crearBitacora("Buscar empleado");
+
+            clsCarreras empleado = dao.obtenerEmpleadoPorId(id, bitacora);
+
+            if(empleado != null){
+                
+            BitacoraPlanillaDAO daoBitacora =
+            new BitacoraPlanillaDAO();
+
+            clsBitacoraPlanilla bitacoraPlanilla =
+            new clsBitacoraPlanilla();
+
+            bitacoraPlanilla.setCodigo(6003);
+
+            bitacoraPlanilla.setAccion("Buscar");
+
+            bitacoraPlanilla.setTablaAfectada("empleados");
+
+            bitacoraPlanilla.setDescripcion(
+            "Se Busqueda un empleado"
+            );
+
+            bitacoraPlanilla.setUsuario("admin");
+
+            daoBitacora.insertarBitacora(
+            bitacoraPlanilla
+            );
+
+               
+
+                txtCodigo.setText(String.valueOf(empleado.getEmpcodigo()));
+
+                txtNombre.setText(empleado.getEmpnombre());
+
+                txtDPI.setText(empleado.getEmpdpi());
+
+                txtEstatus.setText(
+                    String.valueOf(empleado.getPuecodigo())
+                );
+
+                
+                if(empleado.getEmpestado() == 1){
+
+                    cboEstatus.setSelectedItem("Activo");
+
+                }else{
+
+                    cboEstatus.setSelectedItem("Inactivo");
+                }
+
+            }else{
+
+                JOptionPane.showMessageDialog(null, "Empleado no encontrado");
+            }
+
+        } catch (NumberFormatException e) {
+
+            JOptionPane.showMessageDialog(null, "Ingrese un número válido");
+        }
+    }//GEN-LAST:event_jButton6ActionPerformed
+
+    private void btnModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModificarActionPerformed
+        // TODO add your handling code here:
+        if(txtCodigo.getText().trim().isEmpty()){
+
+            JOptionPane.showMessageDialog(null, "Seleccione un registro");
+            return;
+        }
+
+        if(txtNombre.getText().trim().isEmpty() ||
+            txtDPI.getText().trim().isEmpty() ||
+            txtEstatus.getText().trim().isEmpty()){
+
+            JOptionPane.showMessageDialog(null, "Complete los campos");
+            return;
+        }
+
+        try {
+
+            clsCarreras empleado = new clsCarreras();
+
+            empleado.setEmpcodigo(
+                Integer.parseInt(txtCodigo.getText())
+            );
+
+            empleado.setEmpnombre(
+                txtNombre.getText().trim()
+            );
+
+            empleado.setEmpdpi(
+                txtDPI.getText().trim()
+            );
+
+            empleado.setPuecodigo(
+                Integer.parseInt(txtEstatus.getText())
+            );
+
+            
+
+            if(cboEstatus.getSelectedItem().toString().equals("Activo")){
+
+                empleado.setEmpestado(1);
+
+            }else{
+
+                empleado.setEmpestado(0);
+            }
+
+            CarrerasDAO dao = new CarrerasDAO();
+
+            clsBitacora bitacora = crearBitacora("Modificar empleado");
+
+            int resultado = dao.actualizarEmpleado(empleado, bitacora);
+
+            if(resultado > 0){
+                
+            BitacoraPlanillaDAO daoBitacora =
+            new BitacoraPlanillaDAO();
+
+            clsBitacoraPlanilla bitacoraPlanilla =
+            new clsBitacoraPlanilla();
+
+            bitacoraPlanilla.setCodigo(6003);
+
+            bitacoraPlanilla.setAccion("Modificar");
+
+            bitacoraPlanilla.setTablaAfectada("empleados");
+
+            bitacoraPlanilla.setDescripcion(
+            "Se modificacion un empleado"
+            );
+
+            bitacoraPlanilla.setUsuario("admin");
+
+            daoBitacora.insertarBitacora(
+            bitacoraPlanilla
+            );
+
+               
+
+                JOptionPane.showMessageDialog(null, "Empleado modificado");
+
+                llenadoDeTablas();
+
+                limpiarTextos();
+
+            }else{
+
+                JOptionPane.showMessageDialog(null,
+                    "No se pudo modificar");
+            }
+
+        } catch (NumberFormatException e) {
+
+            JOptionPane.showMessageDialog(null,
+                "Código inválido");
+
+        } catch (IllegalArgumentException e) {
+
+            JOptionPane.showMessageDialog(null,
+                "Fecha inválida. Use YYYY-MM-DD");
+        }
+    }//GEN-LAST:event_btnModificarActionPerformed
+
+    private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
+        // TODO add your handling code here:
+        if(txtCodigo.getText().trim().isEmpty()){
+
+            JOptionPane.showMessageDialog(null,
+                "Ingrese un código");
+
+            return;
+        }
+
+        try {
+
+            clsCarreras empleado = new clsCarreras();
+
+            empleado.setEmpcodigo(
+                Integer.parseInt(txtCodigo.getText())
+            );
+
+            CarrerasDAO dao = new CarrerasDAO();
+
+            clsBitacora bitacora = crearBitacora("Eliminar empleado");
+
+            int resultado = dao.eliminarEmpleado(empleado, bitacora);
+
+            if(resultado > 0){
+                
+        BitacoraPlanillaDAO daoBitacora =
+            new BitacoraPlanillaDAO();
+
+            clsBitacoraPlanilla bitacoraPlanilla =
+            new clsBitacoraPlanilla();
+
+            bitacoraPlanilla.setCodigo(6003);
+
+            bitacoraPlanilla.setAccion("Eliminar");
+
+            bitacoraPlanilla.setTablaAfectada("empleados");
+
+            bitacoraPlanilla.setDescripcion(
+            "Se elimino un empleado"
+            );
+
+            bitacoraPlanilla.setUsuario("admin");
+
+            daoBitacora.insertarBitacora(
+            bitacoraPlanilla
+            );
+
+            
+
+                JOptionPane.showMessageDialog(null,
+                    "Empleado eliminado");
+
+                llenadoDeTablas();
+
+                limpiarTextos();
+
+            }else{
+
+                JOptionPane.showMessageDialog(null,
+                    "No se pudo eliminar");
+            }
+
+        } catch (NumberFormatException e) {
+
+            JOptionPane.showMessageDialog(null,
+                "Código inválido");
+        }
+    }//GEN-LAST:event_btnEliminarActionPerformed
+
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+        // TODO add your handling code here:
+        limpiarTextos();
+
+        habilitarBotones();
+    }//GEN-LAST:event_jButton4ActionPerformed
+
+    private void txtDPIActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtDPIActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtDPIActionPerformed
+
+    private void btnayudaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnayudaActionPerformed
+        // TODO add your handling code here:
+         try {
+
+            String ruta = new File("src/main/java/Ayudas/Planillas/AyudaEmpleados.chm").getAbsolutePath();
+
+            File archivo = new File(ruta);
+
+            if (archivo.exists()) {
+
+                Runtime.getRuntime().exec(
+                    "rundll32 url.dll,FileProtocolHandler \"" + ruta + "\""
+                );
+
+            } else {
+
+                JOptionPane.showMessageDialog(this, "No se encontró el archivo de ayuda");
+
+            }
+
+        } catch (Exception ex) {
+
+            ex.printStackTrace();
+
+        }
+    }//GEN-LAST:event_btnayudaActionPerformed
+
+    
+     public void habilitarBotones() {
+
+        btnRegistrar.setEnabled(true);
+
+        btnModificar.setEnabled(true);
+
+        btnEliminar.setEnabled(true);
+    }
+
+    public void desHabilitarBotones() {
+
+        btnRegistrar.setEnabled(false);
+
+        btnModificar.setEnabled(false);
+
+        btnEliminar.setEnabled(false);
+    }
+
+    public void esperar5min() {
+
+        try {
+
+            Thread.sleep(5 * 60 * 1000);
+
+        } catch (Exception e) {
+
+            System.out.println(e);
+        }
+    }
+    
+    
     /**
      * @param args the command line arguments
      */
@@ -342,10 +800,11 @@ public class frmCarreras extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnEliminar;
+    private javax.swing.JButton btnModificar;
+    private javax.swing.JButton btnRegistrar;
     private javax.swing.JButton btnSalida;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
+    private javax.swing.JButton btnayuda;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton6;
@@ -358,8 +817,8 @@ public class frmCarreras extends javax.swing.JFrame {
     private javax.swing.JTable tblCarreras;
     private javax.swing.JTextField txtBuscar;
     private javax.swing.JTextField txtCodigo;
+    private javax.swing.JTextField txtDPI;
     private javax.swing.JTextField txtEstatus;
-    private javax.swing.JTextField txtFacultad;
     private javax.swing.JTextField txtNombre;
     // End of variables declaration//GEN-END:variables
 }
