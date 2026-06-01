@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="88432c99-3dba-4f25-9f46-71611775b0bb">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<queryString language="SQL">
+		<![CDATA[SELECT * FROM sig.puestos;]]>
+	</queryString>
+	<field name="Puecodigo" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="Puenombre" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="Puesalario_base" class="java.math.BigDecimal">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="Depcodigo" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch"/>
+	</title>
+	<pageHeader>
+		<band height="35" splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="61" splitType="Stretch">
+			<staticText>
+				<reportElement x="31" y="2" width="100" height="20" uuid="fedcfa81-b86d-42fa-bcea-0505547676b3"/>
+				<text><![CDATA[Codigo]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="152" y="0" width="100" height="20" uuid="a9ab4e73-478c-4fef-9907-4bfd9b1a7863"/>
+				<text><![CDATA[Nombre]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="298" y="0" width="100" height="20" uuid="7bf54f36-d305-4f64-a73d-bf7f69933c13"/>
+				<text><![CDATA[Salario_base]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="434" y="2" width="121" height="20" uuid="10997ef1-bd2a-4e12-941c-0de82f94418c"/>
+				<text><![CDATA[codigo departamento]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="125" splitType="Stretch">
+			<textField>
+				<reportElement x="31" y="29" width="100" height="20" uuid="b17e2dbf-1604-4a67-9332-4203d451a8a5"/>
+				<textFieldExpression><![CDATA[$F{Puecodigo}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="152" y="29" width="100" height="20" uuid="aabd70da-d988-4541-9d47-0b95d5ae2d53"/>
+				<textFieldExpression><![CDATA[$F{Puenombre}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="298" y="29" width="100" height="20" uuid="0ba7d9a7-fecb-44bf-88ad-32f7a35a7e26"/>
+				<textFieldExpression><![CDATA[$F{Puesalario_base}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="434" y="29" width="100" height="20" uuid="e0a6cd4c-c1f2-475a-b2f1-d05d189665b2"/>
+				<textFieldExpression><![CDATA[$F{Depcodigo}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>

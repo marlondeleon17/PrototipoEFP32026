@@ -1,0 +1,500 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Reportes de Tipo Cuenta por Angel Méndez -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="RMovimientoBancario" language="groovy" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="cfbc3197-7978-4589-b7d7-5a205b4ccb40">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<queryString language="SQL">
+		<![CDATA[SELECT * FROM `movimientobancario` ORDER BY Movbfechamovimiento]]>
+	</queryString>
+	<field name="Movbid" class="java.lang.Integer"/>
+	<field name="Movbfechamovimiento" class="java.time.LocalDateTime"/>
+	<field name="Movibmonto" class="java.math.BigDecimal"/>
+	<field name="Movdescripcion" class="java.lang.String"/>
+	<field name="CBANid" class="java.lang.Integer"/>
+	<field name="TTid" class="java.lang.Integer"/>
+	<field name="Movbtipomov" class="java.lang.String"/>
+	<field name="Movbreferencia" class="java.lang.String"/>
+	<field name="Movbconciliado" class="java.lang.String"/>
+	<variable name="SubtotalMonto" class="java.math.BigDecimal" resetType="Group" resetGroup="GrupoFecha" calculation="Sum">
+		<variableExpression><![CDATA[$F{Movibmonto}]]></variableExpression>
+	</variable>
+	<variable name="TotalMonto" class="java.math.BigDecimal" calculation="Sum">
+		<variableExpression><![CDATA[$F{Movibmonto}]]></variableExpression>
+	</variable>
+	<group name="GrupoFecha">
+		<groupExpression><![CDATA[$F{Movbfechamovimiento} != null ? $F{Movbfechamovimiento}.toLocalDate().toString() : "Sin fecha"]]></groupExpression>
+		<groupHeader>
+			<band height="22" splitType="Stretch">
+				<rectangle>
+					<reportElement x="0" y="2" width="802" height="18" forecolor="#D6EAF8" backcolor="#D6EAF8" uuid="d820c1ae-6f85-47aa-8f2c-5455269ccb61"/>
+					<graphicElement fill="Solid">
+						<pen lineWidth="0.0"/>
+					</graphicElement>
+				</rectangle>
+				<rectangle>
+					<reportElement x="0" y="2" width="5" height="18" forecolor="#2E86C1" backcolor="#2E86C1" uuid="c3ab3938-da00-4c50-9e99-f1241436fcc5"/>
+					<graphicElement fill="Solid">
+						<pen lineWidth="0.0"/>
+					</graphicElement>
+				</rectangle>
+				<staticText>
+					<reportElement x="10" y="2" width="80" height="18" forecolor="#1A5276" uuid="f9de007d-5ace-432a-b6e1-4e0328f4e550"/>
+					<textElement verticalAlignment="Middle">
+						<font size="8" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Fecha:]]></text>
+				</staticText>
+				<textField>
+					<reportElement x="60" y="2" width="200" height="18" forecolor="#1A5276" uuid="fd8849eb-4a57-426c-a5b8-db200e45076c"/>
+					<textElement verticalAlignment="Middle">
+						<font size="8" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{Movbfechamovimiento} != null ? $F{Movbfechamovimiento}.toLocalDate().toString() : "Sin fecha"]]></textFieldExpression>
+				</textField>
+			</band>
+		</groupHeader>
+		<groupFooter>
+			<band height="22" splitType="Stretch">
+				<rectangle>
+					<reportElement x="0" y="0" width="802" height="20" forecolor="#EBF5FB" backcolor="#EBF5FB" uuid="2f63778d-aaa8-418c-88ab-cf9610ef12a2"/>
+					<graphicElement fill="Solid">
+						<pen lineWidth="0.0"/>
+					</graphicElement>
+				</rectangle>
+				<staticText>
+					<reportElement x="0" y="0" width="320" height="20" forecolor="#1A5276" uuid="46608072-2a9e-4fef-9f92-70deb424eaaf"/>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font size="8" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Subtotal del día:]]></text>
+				</staticText>
+				<textField pattern="#,##0.00">
+					<reportElement x="320" y="0" width="100" height="20" forecolor="#1A5276" uuid="90c8defe-2d96-4e0e-931e-b5fd17225844"/>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font size="8" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$V{SubtotalMonto}]]></textFieldExpression>
+				</textField>
+			</band>
+		</groupFooter>
+	</group>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="90" splitType="Stretch">
+			<rectangle>
+				<reportElement x="0" y="0" width="802" height="80" forecolor="#0D3B66" backcolor="#0D3B66" uuid="f18a8b87-a122-4fa4-82ad-71f5ae30b4df"/>
+				<graphicElement fill="Solid">
+					<pen lineWidth="0.0"/>
+				</graphicElement>
+			</rectangle>
+			<rectangle>
+				<reportElement x="0" y="60" width="802" height="20" forecolor="#1A5276" backcolor="#1A5276" uuid="87005d46-5a3a-4e96-8541-92f567ee30a5"/>
+				<graphicElement fill="Solid">
+					<pen lineWidth="0.0"/>
+				</graphicElement>
+			</rectangle>
+			<rectangle>
+				<reportElement x="0" y="0" width="6" height="80" forecolor="#27AE60" backcolor="#27AE60" uuid="6e9ff5df-6eb7-4d0a-9955-830747a69185"/>
+				<graphicElement fill="Solid">
+					<pen lineWidth="0.0"/>
+				</graphicElement>
+			</rectangle>
+			<staticText>
+				<reportElement x="16" y="8" width="600" height="36" forecolor="#FFFFFF" uuid="02a7020e-d0d9-450d-b400-96c69c72f6e5"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="SansSerif" size="22" isBold="true"/>
+				</textElement>
+				<text><![CDATA[MOVIMIENTOS BANCARIOS]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="16" y="44" width="400" height="16" forecolor="#AED6F1" uuid="ccb6162e-d22a-4265-9bb6-0cf7226468e1"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font size="9" isItalic="true"/>
+				</textElement>
+				<text><![CDATA[Historial de movimientos bancarios]]></text>
+			</staticText>
+			<textField pattern="dd/MM/yyyy HH:mm">
+				<reportElement x="500" y="44" width="296" height="16" forecolor="#AED6F1" uuid="6359e813-f908-4874-89a3-43a9513833c5"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Generado: " + new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="0" y="80" width="802" height="1" forecolor="#27AE60" uuid="764603d8-8734-4b7d-9d0a-5f6350e56c9c"/>
+				<graphicElement>
+					<pen lineWidth="2.0"/>
+				</graphicElement>
+			</line>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="18" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="802" height="18" forecolor="#95A5A6" uuid="255314d6-e826-451c-adb8-1ada9bfe1c33"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font size="7" isItalic="true"/>
+				</textElement>
+				<text><![CDATA[Sistema Bancario — Reporte Interno Confidencial]]></text>
+			</staticText>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="32" splitType="Stretch">
+			<rectangle>
+				<reportElement x="0" y="0" width="802" height="32" forecolor="#1A5276" backcolor="#1A5276" uuid="7120337e-3034-447b-ae14-5f8ef583556a"/>
+				<graphicElement fill="Solid">
+					<pen lineWidth="0.0"/>
+				</graphicElement>
+			</rectangle>
+			<rectangle>
+				<reportElement x="0" y="0" width="6" height="32" forecolor="#27AE60" backcolor="#27AE60" uuid="2f9991a7-b01d-4f1c-ba03-66493d00e55c"/>
+				<graphicElement fill="Solid">
+					<pen lineWidth="0.0"/>
+				</graphicElement>
+			</rectangle>
+			<staticText>
+				<reportElement x="10" y="0" width="35" height="32" forecolor="#FFFFFF" uuid="9d24f996-fe86-4f19-a8c0-dd42466b29e7"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[ID]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="45" y="0" width="110" height="32" forecolor="#FFFFFF" uuid="06bf2933-7ab3-4bc2-8180-5e93bef2c94d"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[FECHA]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="155" y="0" width="85" height="32" forecolor="#FFFFFF" uuid="e2fbb7e5-83a4-4b22-ad92-87634ede32c2"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[MONTO]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="240" y="0" width="130" height="32" forecolor="#FFFFFF" uuid="951aa731-5d07-47f4-8f7b-8bcbdc1c4d9b"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[DESCRIPCIÓN]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="370" y="0" width="55" height="32" forecolor="#FFFFFF" uuid="1fbb6dfb-9997-4e82-ac5a-6e54975b17b6"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[CUENTA]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="425" y="0" width="45" height="32" forecolor="#FFFFFF" uuid="17fc5868-28e8-47fc-a293-33dbc9913f60"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[TT ID]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="470" y="0" width="90" height="32" forecolor="#FFFFFF" uuid="4af25690-4233-4e55-8704-697d391f2f03"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[TIPO MOV.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="560" y="0" width="120" height="32" forecolor="#FFFFFF" uuid="4f916649-961d-4685-a965-17628e5850e4"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[REFERENCIA]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="680" y="0" width="122" height="32" forecolor="#FFFFFF" uuid="d84b5579-60d5-43d9-9817-012877cf2700"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[CONCILIADO]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="26" splitType="Stretch">
+			<rectangle>
+				<reportElement x="0" y="0" width="802" height="25" forecolor="#F4F6F7" backcolor="#F4F6F7" uuid="68fe4f2b-e6f2-40b1-b483-996adf2a0b7e">
+					<printWhenExpression><![CDATA[$V{REPORT_COUNT} % 2 == 0]]></printWhenExpression>
+				</reportElement>
+				<graphicElement fill="Solid">
+					<pen lineWidth="0.0"/>
+				</graphicElement>
+			</rectangle>
+			<rectangle>
+				<reportElement x="0" y="2" width="5" height="21" forecolor="#27AE60" backcolor="#27AE60" uuid="56d0c6da-1953-48a6-ad89-bfa465b9b773">
+					<printWhenExpression><![CDATA[$F{Movbtipomov} != null && $F{Movbtipomov}.toUpperCase().contains("CRED")]]></printWhenExpression>
+				</reportElement>
+				<graphicElement fill="Solid">
+					<pen lineWidth="0.0"/>
+				</graphicElement>
+			</rectangle>
+			<rectangle>
+				<reportElement x="0" y="2" width="5" height="21" forecolor="#E74C3C" backcolor="#E74C3C" uuid="7e954d80-13eb-4872-9d6e-a91d16d221f7">
+					<printWhenExpression><![CDATA[$F{Movbtipomov} != null && $F{Movbtipomov}.toUpperCase().contains("DEB")]]></printWhenExpression>
+				</reportElement>
+				<graphicElement fill="Solid">
+					<pen lineWidth="0.0"/>
+				</graphicElement>
+			</rectangle>
+			<rectangle>
+				<reportElement x="0" y="2" width="5" height="21" forecolor="#95A5A6" backcolor="#95A5A6" uuid="79311b8d-2916-492a-92cd-09cdb25e68b3">
+					<printWhenExpression><![CDATA[$F{Movbtipomov} == null || (!$F{Movbtipomov}.toUpperCase().contains("CRED") && !$F{Movbtipomov}.toUpperCase().contains("DEB"))]]></printWhenExpression>
+				</reportElement>
+				<graphicElement fill="Solid">
+					<pen lineWidth="0.0"/>
+				</graphicElement>
+			</rectangle>
+			<textField>
+				<reportElement x="10" y="0" width="35" height="25" uuid="e11bf0b7-b1f7-44a3-8c91-5a95bdeccc51"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{Movbid}]]></textFieldExpression>
+			</textField>
+			<textField pattern="dd/MM/yyyy HH:mm">
+				<reportElement x="45" y="0" width="110" height="25" uuid="19c071e2-a570-46d0-a26d-678f80bfd46f"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{Movbfechamovimiento}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.00">
+				<reportElement x="155" y="0" width="85" height="25" forecolor="#27AE60" uuid="033e19f7-4640-45ce-9e09-945efa684c81">
+					<printWhenExpression><![CDATA[$F{Movbtipomov} != null && $F{Movbtipomov}.toUpperCase().contains("CRED")]]></printWhenExpression>
+				</reportElement>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font size="8" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{Movibmonto}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.00">
+				<reportElement x="155" y="0" width="85" height="25" forecolor="#E74C3C" uuid="2cbde938-e007-4d71-9a9e-6f1cd1b7c1ec">
+					<printWhenExpression><![CDATA[$F{Movbtipomov} != null && $F{Movbtipomov}.toUpperCase().contains("DEB")]]></printWhenExpression>
+				</reportElement>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font size="8" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{Movibmonto}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.00">
+				<reportElement x="155" y="0" width="85" height="25" forecolor="#2C3E50" uuid="d742bef3-3a0d-4fc5-b6b2-ae49762c2647">
+					<printWhenExpression><![CDATA[$F{Movbtipomov} == null || (!$F{Movbtipomov}.toUpperCase().contains("CRED") && !$F{Movbtipomov}.toUpperCase().contains("DEB"))]]></printWhenExpression>
+				</reportElement>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{Movibmonto}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="240" y="0" width="130" height="25" uuid="fd571d5a-7c57-4c5c-90cf-f15fb430446c"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{Movdescripcion}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="370" y="0" width="55" height="25" uuid="9aa6d869-c07c-43ee-a451-f33110c803bc"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{CBANid}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="425" y="0" width="45" height="25" uuid="94d2695f-80e9-44f6-8857-1b11db577009"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{TTid}]]></textFieldExpression>
+			</textField>
+			<rectangle radius="3">
+				<reportElement x="472" y="5" width="84" height="16" forecolor="#D5F5E3" backcolor="#D5F5E3" uuid="b0261e5c-4373-447c-a63a-801315f85419">
+					<printWhenExpression><![CDATA[$F{Movbtipomov} != null && $F{Movbtipomov}.toUpperCase().contains("CRED")]]></printWhenExpression>
+				</reportElement>
+				<graphicElement fill="Solid">
+					<pen lineWidth="0.0"/>
+				</graphicElement>
+			</rectangle>
+			<rectangle radius="3">
+				<reportElement x="472" y="5" width="84" height="16" forecolor="#FADBD8" backcolor="#FADBD8" uuid="8d7c51bb-c05b-4a55-8de1-de80d6d9557f">
+					<printWhenExpression><![CDATA[$F{Movbtipomov} != null && $F{Movbtipomov}.toUpperCase().contains("DEB")]]></printWhenExpression>
+				</reportElement>
+				<graphicElement fill="Solid">
+					<pen lineWidth="0.0"/>
+				</graphicElement>
+			</rectangle>
+			<rectangle radius="3">
+				<reportElement x="472" y="5" width="84" height="16" forecolor="#EAECEE" backcolor="#EAECEE" uuid="74d1fc01-a8d2-4469-835c-967ec2d91d91">
+					<printWhenExpression><![CDATA[$F{Movbtipomov} == null || (!$F{Movbtipomov}.toUpperCase().contains("CRED") && !$F{Movbtipomov}.toUpperCase().contains("DEB"))]]></printWhenExpression>
+				</reportElement>
+				<graphicElement fill="Solid">
+					<pen lineWidth="0.0"/>
+				</graphicElement>
+			</rectangle>
+			<textField>
+				<reportElement x="470" y="5" width="88" height="16" forecolor="#27AE60" uuid="1850e1cc-a1bd-403f-b6e7-a9ff744f94cc">
+					<printWhenExpression><![CDATA[$F{Movbtipomov} != null && $F{Movbtipomov}.toUpperCase().contains("CRED")]]></printWhenExpression>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="7" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{Movbtipomov}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="470" y="5" width="88" height="16" forecolor="#E74C3C" uuid="cd64f8d1-a09c-4795-9f92-a70dd4207cf2">
+					<printWhenExpression><![CDATA[$F{Movbtipomov} != null && $F{Movbtipomov}.toUpperCase().contains("DEB")]]></printWhenExpression>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="7" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{Movbtipomov}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="470" y="5" width="88" height="16" forecolor="#7F8C8D" uuid="d6e316b3-2eb3-45f4-92a2-1c23a46041c2">
+					<printWhenExpression><![CDATA[$F{Movbtipomov} == null || (!$F{Movbtipomov}.toUpperCase().contains("CRED") && !$F{Movbtipomov}.toUpperCase().contains("DEB"))]]></printWhenExpression>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="7"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{Movbtipomov} != null ? $F{Movbtipomov} : "—"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="560" y="0" width="120" height="25" uuid="5e777e8c-33ba-4f8c-877e-391d77549971"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{Movbreferencia}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="680" y="0" width="122" height="25" forecolor="#27AE60" uuid="9d43f9fa-f608-4c0b-b6b2-e851b1e84fa1">
+					<printWhenExpression><![CDATA[$F{Movbconciliado} != null && ($F{Movbconciliado}.equalsIgnoreCase("S") || $F{Movbconciliado}.equalsIgnoreCase("SI") || $F{Movbconciliado}.equalsIgnoreCase("1") || $F{Movbconciliado}.equalsIgnoreCase("true"))]]></printWhenExpression>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="11" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["✓ Conciliado"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="680" y="0" width="122" height="25" forecolor="#E74C3C" uuid="628e5a0c-cb54-4ec5-89e8-4d408243d2f6">
+					<printWhenExpression><![CDATA[$F{Movbconciliado} == null || ($F{Movbconciliado}.equalsIgnoreCase("N") || $F{Movbconciliado}.equalsIgnoreCase("NO") || $F{Movbconciliado}.equalsIgnoreCase("0") || $F{Movbconciliado}.equalsIgnoreCase("false"))]]></printWhenExpression>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="11" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["✗ Pendiente"]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="0" y="25" width="802" height="1" forecolor="#D5D8DC" uuid="01ddf630-c020-442e-8e68-a8b1b88741df"/>
+				<graphicElement>
+					<pen lineWidth="0.5"/>
+				</graphicElement>
+			</line>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="5" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="35" splitType="Stretch">
+			<line>
+				<reportElement x="0" y="0" width="802" height="1" forecolor="#27AE60" uuid="485746df-91f3-409c-8494-300886f26655"/>
+				<graphicElement>
+					<pen lineWidth="1.5"/>
+				</graphicElement>
+			</line>
+			<staticText>
+				<reportElement x="0" y="5" width="200" height="20" forecolor="#7F8C8D" uuid="fafb7541-725b-4224-b542-a92472035270"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font size="7" isItalic="true"/>
+				</textElement>
+				<text><![CDATA[© Sistema Bancario]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="200" y="5" width="402" height="20" forecolor="#7F8C8D" uuid="dd4fd57a-a800-46a8-a231-3a4a26a18dd7"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Página " + $V{PAGE_NUMBER} + " de " + $V{PAGE_COUNT}]]></textFieldExpression>
+			</textField>
+			<textField pattern="dd/MM/yyyy">
+				<reportElement x="602" y="5" width="200" height="20" forecolor="#7F8C8D" uuid="beadb6ba-c262-4bbe-9003-d8f59e24b221"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font size="7"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band height="70" splitType="Stretch">
+			<line>
+				<reportElement x="0" y="2" width="802" height="1" forecolor="#BDC3C7" uuid="9462038d-7211-4db4-a476-1ae40d5d51b7"/>
+				<graphicElement>
+					<pen lineWidth="0.5"/>
+				</graphicElement>
+			</line>
+			<rectangle>
+				<reportElement x="0" y="8" width="390" height="50" forecolor="#0D3B66" backcolor="#0D3B66" uuid="b7088e85-91a4-4eab-85fd-dc6e5460adcd"/>
+				<graphicElement fill="Solid">
+					<pen lineWidth="0.0"/>
+				</graphicElement>
+			</rectangle>
+			<rectangle>
+				<reportElement x="0" y="8" width="6" height="50" forecolor="#27AE60" backcolor="#27AE60" uuid="0776cc03-60c2-4358-a601-ae7ef8150c40"/>
+				<graphicElement fill="Solid">
+					<pen lineWidth="0.0"/>
+				</graphicElement>
+			</rectangle>
+			<staticText>
+				<reportElement x="16" y="8" width="220" height="50" forecolor="#AED6F1" uuid="7dc0f83e-e0ab-4601-9486-97a4f1fe63cd"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font size="9" isItalic="true"/>
+				</textElement>
+				<text><![CDATA[Total de movimientos registrados:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="236" y="8" width="148" height="50" forecolor="#F39C12" uuid="0df45680-acd6-4712-b107-aee3621163f4"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font size="26" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{REPORT_COUNT}]]></textFieldExpression>
+			</textField>
+			<rectangle>
+				<reportElement x="400" y="8" width="402" height="50" forecolor="#1A5276" backcolor="#1A5276" uuid="49bfffb3-7aa2-4de4-8176-1fb276139231"/>
+				<graphicElement fill="Solid">
+					<pen lineWidth="0.0"/>
+				</graphicElement>
+			</rectangle>
+			<rectangle>
+				<reportElement x="400" y="8" width="6" height="50" forecolor="#F39C12" backcolor="#F39C12" uuid="a700c1f9-8ca6-44bf-8392-45b33bb2b6c9"/>
+				<graphicElement fill="Solid">
+					<pen lineWidth="0.0"/>
+				</graphicElement>
+			</rectangle>
+			<staticText>
+				<reportElement x="416" y="8" width="180" height="50" forecolor="#AED6F1" uuid="e174dfdb-a1bb-41c5-8c77-97274881798b"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font size="9" isItalic="true"/>
+				</textElement>
+				<text><![CDATA[Monto total acumulado:]]></text>
+			</staticText>
+			<textField pattern="#,##0.00">
+				<reportElement x="596" y="8" width="200" height="50" forecolor="#F39C12" uuid="c5c306a2-4c0a-4a8c-9c24-890cb1784153"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font size="18" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{TotalMonto}]]></textFieldExpression>
+			</textField>
+		</band>
+	</summary>
+</jasperReport>

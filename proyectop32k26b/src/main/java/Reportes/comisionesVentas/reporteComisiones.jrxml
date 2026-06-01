@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="a54b4368-09f7-4e0a-aa1d-1b0d0db70425">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<queryString>
+		<![CDATA[SELECT * FROM `comisionesvendedores`]]>
+	</queryString>
+	<field name="Comid" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="Venid" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="lincomision" class="java.math.BigDecimal">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="prodcomision" class="java.math.BigDecimal">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="marcomision" class="java.math.BigDecimal">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="Commontoventas" class="java.math.BigDecimal">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="Commeta" class="java.math.BigDecimal">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="Comventasadicionales" class="java.math.BigDecimal">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="Comcomision" class="java.math.BigDecimal">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="Cppcodigo" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch"/>
+	</title>
+	<pageHeader>
+		<band height="35" splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="69" splitType="Stretch">
+			<staticText>
+				<reportElement x="65" y="2" width="100" height="20" uuid="9a81d727-ab8d-4075-becd-6b1d397cedc9"/>
+				<text><![CDATA[Comid]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="194" y="2" width="100" height="20" uuid="b0f0cdcb-9ab0-4cca-b40b-bc27d401513b"/>
+				<text><![CDATA[Venid]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="330" y="2" width="100" height="20" uuid="435f2a34-6ca0-42ee-8337-e2635e94351f"/>
+				<text><![CDATA[lincomision]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="455" y="2" width="100" height="20" uuid="216c3531-689b-4d0d-9df2-8381e41d5c2c"/>
+				<text><![CDATA[prodcomision]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="65" y="22" width="100" height="20" uuid="64f6a23c-2ece-422b-85a0-50fcc6569c4b"/>
+				<text><![CDATA[marcomision]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="194" y="22" width="100" height="20" uuid="a3607f3b-e514-43c2-afc9-76d15cbfa493"/>
+				<text><![CDATA[Commontoventas]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="330" y="22" width="100" height="20" uuid="0851d5d7-44eb-4e03-a0aa-40657993a875"/>
+				<text><![CDATA[Commeta]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="455" y="22" width="100" height="20" uuid="bc9a5ea8-2e63-4cad-9345-f5a24a919681"/>
+				<text><![CDATA[Comventasadicionales]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="65" y="41" width="100" height="20" uuid="1171e87a-04d3-4dc7-a427-8a7087503881"/>
+				<text><![CDATA[Comcomision]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="194" y="42" width="100" height="20" uuid="3b24dada-d1bf-4728-b4e2-145fc86f6331"/>
+				<text><![CDATA[Cppcodigo]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="125" splitType="Stretch">
+			<textField>
+				<reportElement x="65" y="18" width="100" height="20" uuid="3717d63b-9565-4a44-ba90-18b207eb05ec"/>
+				<textFieldExpression><![CDATA[$F{Comid}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="194" y="18" width="100" height="20" uuid="62205901-647f-4d92-9667-98953cceeadb"/>
+				<textFieldExpression><![CDATA[$F{Venid}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="330" y="18" width="100" height="20" uuid="70abbdfd-32c8-410e-99cd-1f2b8c737684"/>
+				<textFieldExpression><![CDATA[$F{lincomision}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="465" y="18" width="100" height="20" uuid="74ee81cb-a1c4-4ba2-848a-de7b55c08502"/>
+				<textFieldExpression><![CDATA[$F{prodcomision}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="65" y="73" width="100" height="20" uuid="9a1983f1-3b54-46a8-b47d-465672707fc8"/>
+				<textFieldExpression><![CDATA[$F{marcomision}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="194" y="73" width="100" height="20" uuid="1f0bd41e-58bf-490c-bc00-315d5b078520"/>
+				<textFieldExpression><![CDATA[$F{Commontoventas}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="330" y="73" width="100" height="20" uuid="88acce19-46c1-43df-aa61-749afeef51c3"/>
+				<textFieldExpression><![CDATA[$F{Commeta}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="465" y="73" width="100" height="20" uuid="6a4abe1a-cece-415c-a1fb-6ccbf53ebc97"/>
+				<textFieldExpression><![CDATA[$F{Comventasadicionales}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="65" y="105" width="100" height="20" uuid="a5e2e21b-bacc-4ac2-9e73-51035a709ce9"/>
+				<textFieldExpression><![CDATA[$F{Comcomision}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="194" y="105" width="100" height="20" uuid="2adee474-bca8-4622-820f-937f36d3fee5"/>
+				<textFieldExpression><![CDATA[$F{Cppcodigo}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>

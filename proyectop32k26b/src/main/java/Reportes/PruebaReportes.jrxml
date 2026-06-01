@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="ReporteAsignacion" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="b7b362c7-5ed0-44d5-b978-db0bb6c8c0d7">
+	<queryString language="SQL">
+		<![CDATA[SELECT * FROM asignacionaplicacionusuarios]]>
+	</queryString>
+	<field name="Aplcodigo" class="java.lang.Integer"/>
+	<field name="UsuId" class="java.lang.Integer"/>
+	<field name="APLUins" class="java.lang.String"/>
+	<field name="APLUsel" class="java.lang.String"/>
+	<field name="APLUupd" class="java.lang.String"/>
+	<field name="APLUdel" class="java.lang.String"/>
+	<field name="APLUrep" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="50" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="10" width="555" height="30" uuid="c696919c-2d7e-4560-bad5-d0c64b98514b"/>
+				<textElement textAlignment="Center">
+					<font size="16" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Asignacion Aplicacion Usuarios]]></text>
+			</staticText>
+		</band>
+	</title>
+	<columnHeader>
+		<band height="30" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="80" height="30" uuid="f0ce5e58-cd4a-4aa0-a011-672b9e64142f"/>
+				<textElement textAlignment="Center">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Apl Codigo]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="80" y="0" width="80" height="30" uuid="4e094ae9-7c38-4d50-b161-2d686902aa09"/>
+				<textElement textAlignment="Center">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Usu Id]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="160" y="0" width="70" height="30" uuid="afbd08cf-219f-4696-95ed-66a06f3b3e67"/>
+				<textElement textAlignment="Center">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Insertar]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="230" y="0" width="70" height="30" uuid="43441839-536d-4005-9fba-a0a8b7ffcf41"/>
+				<textElement textAlignment="Center">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Seleccionar]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="300" y="0" width="70" height="30" uuid="6e581288-b5f8-4e97-8841-63e8c5e673f3"/>
+				<textElement textAlignment="Center">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Actualizar]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="370" y="0" width="70" height="30" uuid="db54b079-f223-437d-a16f-17719f52d623"/>
+				<textElement textAlignment="Center">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Eliminar]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="440" y="0" width="115" height="30" uuid="6be1bc06-b447-420f-aecc-0fdadea62d40"/>
+				<textElement textAlignment="Center">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Reportar]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="25" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="0" width="80" height="25" uuid="993d567b-44a2-47e9-8b06-e8d8665c6f0b"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{Aplcodigo}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="80" y="0" width="80" height="25" uuid="01ca9bc4-e0e9-4949-ab24-aa203406daf0"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{UsuId}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="160" y="0" width="70" height="25" uuid="c9c15de2-8e5a-4abf-bf03-39306d41e8e7"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{APLUins}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="230" y="0" width="70" height="25" uuid="2f1b80fb-5293-415a-9473-e5679444de6b"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{APLUsel}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="300" y="0" width="70" height="25" uuid="26feaeb4-825a-45e4-adde-fb7829f58377"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{APLUupd}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="370" y="0" width="70" height="25" uuid="514eaafe-e0fd-4b5f-8785-2ce94a5f7b4c"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{APLUdel}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="440" y="0" width="115" height="25" uuid="74197bed-ec2f-4fb4-9124-fca42e3f1c5a"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{APLUrep}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<pageFooter>
+		<band height="30" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="0" width="555" height="20" uuid="3fe15ad9-56b4-49b8-8b23-7f860efe2db0"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA["Pagina " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+</jasperReport>

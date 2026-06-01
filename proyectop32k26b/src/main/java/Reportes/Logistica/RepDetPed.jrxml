@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="595" pageHeight="842" whenNoDataType="NoDataSection" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="07b4e378-c34e-45dd-80f8-9c1b7cbb559c">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="30"/>
+	<queryString language="SQL">
+		<![CDATA[SELECT * FROM sig.detallepedidos;]]>
+	</queryString>
+	<field name="Detallepedidoid" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="Pedid" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="Prodid" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="Detallepedidocantidad" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch">
+			<staticText>
+				<reportElement x="22" y="20" width="516" height="45" uuid="3652f8e2-5471-4f42-91a0-977d7c309103"/>
+				<textElement>
+					<font size="28"/>
+				</textElement>
+				<text><![CDATA[REPORTE DE DETALLE DE PEDIDOS]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="35" splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="61" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="2" width="100" height="20" uuid="0b85e8d7-ef6f-45dd-a0da-5d2e4c444757"/>
+				<text><![CDATA[Detallepedidoid]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="140" y="2" width="100" height="20" uuid="bbcbdacd-b1e9-41bd-98c9-9d7600ab73fd"/>
+				<text><![CDATA[Pedid]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="291" y="2" width="100" height="20" uuid="92f8b888-6af0-426d-953e-39734dcb8eb8"/>
+				<text><![CDATA[Prodid]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="455" y="2" width="100" height="20" uuid="a430bb8f-a20f-4fd6-9596-e9c7dc7b3b17"/>
+				<text><![CDATA[Detallepedidocantidad]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="125" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="0" width="100" height="20" uuid="272d0c20-fa26-45ce-b729-fe3eff5cfb71"/>
+				<textFieldExpression><![CDATA[$F{Detallepedidoid}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="140" y="0" width="100" height="20" uuid="51db2e0e-2b38-4070-b050-b3aa90fb5b7d"/>
+				<textFieldExpression><![CDATA[$F{Pedid}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="291" y="0" width="100" height="20" uuid="ba12af21-100c-48a4-9d12-4acf8ca0bc15"/>
+				<textFieldExpression><![CDATA[$F{Prodid}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="455" y="0" width="100" height="20" uuid="072b9852-dc49-45fa-9371-a55e69623ebd"/>
+				<textFieldExpression><![CDATA[$F{Detallepedidocantidad}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+	<noData>
+		<band height="50">
+			<staticText>
+				<reportElement x="71" y="0" width="438" height="50" uuid="69ea54e8-3e24-49ea-97f4-48c134a96b40"/>
+				<textElement>
+					<font size="26"/>
+				</textElement>
+				<text><![CDATA[NO HAY DATOS PARA MOSTRAR]]></text>
+			</staticText>
+		</band>
+	</noData>
+</jasperReport>

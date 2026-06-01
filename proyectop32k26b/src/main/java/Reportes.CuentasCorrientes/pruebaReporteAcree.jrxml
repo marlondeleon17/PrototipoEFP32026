@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="a7b0915d-9672-4987-a1dd-8f963477beb8">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<queryString language="SQL">
+		<![CDATA[SELECT * FROM `acreedores`]]>
+	</queryString>
+	<field name="Acrecodigo" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="Acrenombre" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="Acrenit" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="Acrecuentabancaria" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="Acreestado" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch"/>
+	</title>
+	<pageHeader>
+		<band height="35" splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="61" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="2" width="100" height="20" uuid="7199f149-d3bc-4c32-ad0b-9f1642874b33"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[ID]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="125" y="2" width="100" height="20" uuid="ebfad1ae-97be-4a2b-a27e-307afac04cf8"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Nombre]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="249" y="2" width="100" height="20" uuid="f6374e1a-95ee-4778-93de-3f046352b0cc"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Nit]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="366" y="2" width="100" height="20" uuid="2684c404-d00e-4967-97f0-c3df53e6142e"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Cuenta Bancaria]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="494" y="2" width="61" height="20" uuid="c5aa5ccd-4943-4dc2-9649-2675820723fd"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Estado]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="125" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="9" width="100" height="20" uuid="8ca71397-8c55-4fd4-a034-3bcedd26114f"/>
+				<textFieldExpression><![CDATA[$F{Acrecodigo}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="125" y="9" width="100" height="20" uuid="2d3f6e6c-57f1-4b6e-b0b3-727ee528e10b"/>
+				<textFieldExpression><![CDATA[$F{Acrenombre}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="249" y="9" width="100" height="20" uuid="7ac115e3-9574-4ca0-bfb6-131a7486e263"/>
+				<textFieldExpression><![CDATA[$F{Acrenit}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="366" y="9" width="100" height="20" uuid="d7f6d411-332a-4f14-b04c-1c63b1cc9722"/>
+				<textFieldExpression><![CDATA[$F{Acrecuentabancaria}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="494" y="9" width="61" height="20" uuid="b319d04d-91c7-44cf-bf9e-91aa8cd0e481"/>
+				<textFieldExpression><![CDATA[$F{Acreestado}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>

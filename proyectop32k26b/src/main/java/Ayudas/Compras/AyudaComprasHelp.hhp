@@ -1,0 +1,14 @@
+[OPTIONS]
+Compatibility=1.1 or later
+Compiled file=AyudaComprasHelp.chm
+Contents file=InstructivoCompras.hhc
+Default topic=AyudaComprasHelp.html
+Display compile progress=Yes
+Full-text search=Yes
+Language=0x100a Spanish (Guatemala)
+Title=Instructivo del modulo compras
+
+[FILES]
+AyudaComprasHelp.html
+
+[INFOTYPES]

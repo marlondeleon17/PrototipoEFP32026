@@ -1,0 +1,208 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="2906174e-03d0-43b8-877f-312756e6fddd">
+	<queryString language="SQL">
+		<![CDATA[SELECT * FROM `cattipotransaccion`]]>
+	</queryString>
+	<field name="TTid" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="TTnombretipo" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="TTdescripcion" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<variable name="TOTAL_REGISTROS" class="java.lang.Integer" calculation="Count">
+		<variableExpression><![CDATA[$F{TTid}]]></variableExpression>
+	</variable>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+
+	<!-- TITLE -->
+	<title>
+		<band height="79" splitType="Stretch">
+			<rectangle>
+				<reportElement x="0" y="0" width="555" height="79" backcolor="#A32D2D" uuid="t-bg"/>
+				<graphicElement>
+					<pen lineWidth="0.0"/>
+				</graphicElement>
+			</rectangle>
+			<staticText>
+				<reportElement x="0" y="0" width="555" height="79" forecolor="#FCEBEB" uuid="t-txt"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="20" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Catálogo de Tipos de Transacción]]></text>
+			</staticText>
+		</band>
+	</title>
+
+	<!-- PAGE HEADER -->
+	<pageHeader>
+		<band height="35" splitType="Stretch">
+			<rectangle>
+				<reportElement x="0" y="0" width="555" height="35" backcolor="#FCEBEB" uuid="ph-bg"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#F7C1C1"/>
+				</graphicElement>
+			</rectangle>
+			<staticText>
+				<reportElement x="0" y="0" width="545" height="35" forecolor="#791F1F" uuid="ph-txt"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font size="9"/>
+				</textElement>
+				<text><![CDATA[Sistema Bancario]]></text>
+			</staticText>
+		</band>
+	</pageHeader>
+
+	<!-- COLUMN HEADER -->
+	<columnHeader>
+		<band height="61" splitType="Stretch">
+			<rectangle>
+				<reportElement x="0" y="0" width="555" height="61" backcolor="#E24B4A" uuid="ch-bg"/>
+				<graphicElement>
+					<pen lineWidth="0.0"/>
+				</graphicElement>
+			</rectangle>
+			<!-- Separadores verticales -->
+			<line>
+				<reportElement x="144" y="10" width="1" height="41" forecolor="#F09595" uuid="ch-sep1"/>
+			</line>
+			<line>
+				<reportElement x="316" y="10" width="1" height="41" forecolor="#F09595" uuid="ch-sep2"/>
+			</line>
+			<staticText>
+				<reportElement x="44" y="2" width="100" height="57" forecolor="#FCEBEB" uuid="13186784-b368-4935-bf25-dab3b1b414bc"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="11" isBold="true"/>
+				</textElement>
+				<text><![CDATA[ID]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="145" y="2" width="170" height="57" forecolor="#FCEBEB" uuid="e6c2f0f1-024c-4766-b1a4-5e95bc4c2c09"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="11" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Nombre del Tipo]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="317" y="0" width="238" height="61" forecolor="#FCEBEB" uuid="3f32df38-8ed6-455a-bf59-39bac3ff41e7"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="11" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Descripción]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+
+	<!-- DETAIL -->
+	<detail>
+		<band height="125" splitType="Stretch">
+			<!-- Fondo alterno -->
+			<rectangle>
+				<reportElement x="0" y="0" width="555" height="125" backcolor="#FCEBEB" uuid="d-bg-odd">
+					<printWhenExpression><![CDATA[$V{REPORT_COUNT} % 2 == 1]]></printWhenExpression>
+				</reportElement>
+				<graphicElement><pen lineWidth="0.0"/></graphicElement>
+			</rectangle>
+			<rectangle>
+				<reportElement x="0" y="0" width="555" height="125" backcolor="#FFFFFF" uuid="d-bg-even">
+					<printWhenExpression><![CDATA[$V{REPORT_COUNT} % 2 == 0]]></printWhenExpression>
+				</reportElement>
+				<graphicElement><pen lineWidth="0.0"/></graphicElement>
+			</rectangle>
+			<!-- Línea inferior -->
+			<line>
+				<reportElement x="0" y="124" width="555" height="1" forecolor="#F7C1C1" uuid="d-line"/>
+			</line>
+			<!-- Separadores verticales -->
+			<line>
+				<reportElement x="144" y="10" width="1" height="105" forecolor="#F7C1C1" uuid="d-sep1"/>
+			</line>
+			<line>
+				<reportElement x="316" y="10" width="1" height="105" forecolor="#F7C1C1" uuid="d-sep2"/>
+			</line>
+			<textField>
+				<reportElement x="44" y="24" width="100" height="20" forecolor="#501313" uuid="9f983450-0948-434c-a4e8-6fd9d1b0e46b"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{TTid}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="145" y="24" width="170" height="20" forecolor="#501313" uuid="9241ab45-26fe-490b-8fa4-661e33d5d32a"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{TTnombretipo}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="317" y="24" width="238" height="20" forecolor="#501313" uuid="fd2cf4d6-d07c-40c1-905d-556d899d6c56"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{TTdescripcion}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+
+	<!-- COLUMN FOOTER -->
+	<columnFooter>
+		<band height="45" splitType="Stretch">
+			<line>
+				<reportElement x="0" y="0" width="555" height="1" forecolor="#E24B4A" uuid="cf-line"/>
+			</line>
+		</band>
+	</columnFooter>
+
+	<!-- PAGE FOOTER -->
+	<pageFooter>
+		<band height="54" splitType="Stretch">
+			<rectangle>
+				<reportElement x="0" y="5" width="555" height="44" backcolor="#FCEBEB" uuid="pf-bg"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#F7C1C1"/>
+				</graphicElement>
+			</rectangle>
+			<textField>
+				<reportElement x="0" y="5" width="555" height="44" forecolor="#791F1F" uuid="pf-pag"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Página " + $V{PAGE_NUMBER} + " de " + $V{PAGE_COUNT}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+
+	<!-- SUMMARY -->
+	<summary>
+		<band height="42" splitType="Stretch">
+			<rectangle>
+				<reportElement x="0" y="0" width="555" height="42" backcolor="#FFFFFF" uuid="s-bg"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#F7C1C1"/>
+				</graphicElement>
+			</rectangle>
+			<staticText>
+				<reportElement x="300" y="0" width="150" height="42" forecolor="#791F1F" uuid="s-label"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font size="11" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Total registros:  ]]></text>
+			</staticText>
+			<rectangle>
+				<reportElement x="455" y="10" width="80" height="22" backcolor="#A32D2D" uuid="s-box"/>
+				<graphicElement><pen lineWidth="0.0"/></graphicElement>
+			</rectangle>
+			<textField>
+				<reportElement x="455" y="10" width="80" height="22" forecolor="#FCEBEB" uuid="s-total"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="11" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{TOTAL_REGISTROS}]]></textFieldExpression>
+			</textField>
+		</band>
+	</summary>
+</jasperReport>

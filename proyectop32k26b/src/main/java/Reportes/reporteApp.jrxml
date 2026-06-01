@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="9cbd2430-8602-41cb-99d3-0dbedf5588d8">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<queryString language="SQL">
+		<![CDATA[SELECT * FROM sig.aplicaciones;]]>
+	</queryString>
+	<field name="Aplcodigo" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="Aplnombre" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="Aplestado" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch">
+			<staticText>
+				<reportElement x="229" y="29" width="100" height="20" uuid="4429f48c-d857-4857-964d-fe189065eb49"/>
+				<text><![CDATA[Reportes]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="35" splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="61" splitType="Stretch">
+			<staticText>
+				<reportElement x="51" y="9" width="100" height="20" uuid="68b94610-53fe-40bd-a800-3370ba06b514"/>
+				<text><![CDATA[ID]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="229" y="10" width="100" height="20" uuid="e6d71d38-6c25-42c4-b37f-6a4757e586af"/>
+				<text><![CDATA[Nombre App]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="406" y="9" width="100" height="20" uuid="31d1821d-9e78-4e84-9f2d-33cbb43b4103"/>
+				<text><![CDATA[Estatus]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="125" splitType="Stretch">
+			<textField>
+				<reportElement x="51" y="38" width="100" height="20" uuid="1cc99642-dff2-4839-859f-e427380251d0"/>
+				<textFieldExpression><![CDATA[$F{Aplcodigo}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="229" y="38" width="100" height="20" uuid="4f65f8ab-b3fe-49d0-8b41-04c7eccb6b0e"/>
+				<textFieldExpression><![CDATA[$F{Aplnombre}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="406" y="38" width="100" height="20" uuid="9d11898c-79ef-4397-9542-f3f28c86d3cf"/>
+				<textFieldExpression><![CDATA[$F{Aplestado}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>

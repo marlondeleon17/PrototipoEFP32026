@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="0aa1f20c-1194-4138-a147-75e32826a523">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<subDataset name="dataset1" uuid="e6a0e628-5093-4e26-8f53-0848ed2094f4"/>
+	<subDataset name="dataset2" uuid="868fb3be-b499-4314-93d2-2d864411aa24"/>
+	<subDataset name="dataset3" uuid="3ef35682-0707-4c72-ad73-7a692abfec6e"/>
+	<subDataset name="dataset4" uuid="e7deaeef-01a3-4b85-a811-34eb98ead774"/>
+	<queryString language="SQL">
+		<![CDATA[SELECT * FROM sig.cuentasporcobrar;]]>
+	</queryString>
+	<field name="Cpccodigo" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="Cliid" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="Cpcfecha" class="java.sql.Date">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="Cpcmonto" class="java.math.BigDecimal">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="Cpcsaldo" class="java.math.BigDecimal">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="Cpcestado" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="62" splitType="Stretch"/>
+	</title>
+	<pageHeader>
+		<band height="35" splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="41" splitType="Stretch">
+			<staticText>
+				<reportElement x="146" y="8" width="100" height="20" uuid="568af589-e357-41b5-b49a-a72e7ecd1e80"/>
+				<textElement textAlignment="Center" verticalAlignment="Top">
+					<font size="12" isBold="true" isItalic="false" isUnderline="false"/>
+				</textElement>
+				<text><![CDATA[Fecha Emision]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="0" width="65" height="32" uuid="930b924d-d298-4c14-b85a-f419620f4775"/>
+				<textElement textAlignment="Center" verticalAlignment="Top">
+					<font size="12" isBold="true" isItalic="false" isUnderline="false"/>
+				</textElement>
+				<text><![CDATA[Codigo Cuenta]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="78" y="0" width="54" height="32" uuid="73ebc39d-89c3-409b-8729-f2294c5d90ac"/>
+				<textElement textAlignment="Center" verticalAlignment="Top">
+					<font size="12" isBold="true" isItalic="false" isUnderline="false"/>
+				</textElement>
+				<text><![CDATA[ID Cliente]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="257" y="8" width="81" height="20" uuid="707fdb14-5426-483e-b0c7-558b297d0d5f"/>
+				<textElement textAlignment="Center" verticalAlignment="Top">
+					<font size="12" isBold="true" isItalic="false" isUnderline="false"/>
+				</textElement>
+				<text><![CDATA[Monto Total]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="352" y="8" width="97" height="20" uuid="0e77bed1-ca73-4856-b627-c13cb221b11c"/>
+				<textElement textAlignment="Center" verticalAlignment="Top">
+					<font size="12" isBold="true" isItalic="false" isUnderline="false"/>
+				</textElement>
+				<text><![CDATA[Saldo Pendiente]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="469" y="8" width="72" height="20" uuid="39fbc50e-cc40-445e-86ab-6b206ce1fd72"/>
+				<textElement textAlignment="Center">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Estado]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="31" splitType="Stretch">
+			<textField>
+				<reportElement x="146" y="0" width="100" height="20" uuid="c7f77120-3280-4044-9151-3e5d6cfa3780"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isItalic="false" isUnderline="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{Cpcfecha}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="0" y="0" width="65" height="20" uuid="70bb67a5-630e-4f26-9913-e4835a941fa0"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isItalic="false" isUnderline="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{Cpccodigo}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="78" y="0" width="54" height="20" uuid="3d4b1795-f2a6-4967-8f24-ee52a75d78fd"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isItalic="false" isUnderline="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{Cliid}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement mode="Transparent" x="257" y="0" width="81" height="20" uuid="0ffccc0d-238d-44e0-a3c7-4179e3556f9f"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isItalic="false" isUnderline="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{Cpcmonto}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="352" y="0" width="97" height="20" uuid="160d04c9-281e-4ae8-9d38-75df947547e9"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isItalic="false" isUnderline="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{Cpcsaldo}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="469" y="0" width="72" height="20" uuid="026d6909-7fa0-443b-bcde-31754d983cee"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{Cpcestado}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>

@@ -1,0 +1,480 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Reportes de Tipo Cuenta por Angel Méndez -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports"
+              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+              xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports
+              http://jasperreports.sourceforge.net/xsd/jasperreport.xsd"
+              name="RCuentaBancaria"
+              language="groovy"
+              pageWidth="842"
+              pageHeight="595"
+              orientation="Landscape"
+              columnWidth="802"
+              leftMargin="20"
+              rightMargin="20"
+              topMargin="20"
+              bottomMargin="20"
+              uuid="5d29b3a1-5a02-464b-b0fb-b36f19e55835">
+
+    <!-- PARÁMETROS -->
+    <parameter name="MaxSaldo" class="java.math.BigDecimal">
+        <defaultValueExpression><![CDATA[new java.math.BigDecimal("100000")]]></defaultValueExpression>
+    </parameter>
+
+    <!-- QUERY -->
+    <queryString language="SQL">
+        <![CDATA[SELECT * FROM `cuentabancaria` ORDER BY Banid, CBANid]]>
+    </queryString>
+
+    <!-- CAMPOS -->
+    <field name="CBANid"            class="java.lang.Integer"/>
+    <field name="CBANnumerocuenta"  class="java.lang.String"/>
+    <field name="CBANsaldoactual"   class="java.math.BigDecimal"/>
+    <field name="CBANfechaapertura" class="java.sql.Date"/>
+    <field name="Banid"             class="java.lang.Integer"/>
+    <field name="Cliid"             class="java.lang.Integer"/>
+    <field name="TCidcuenta"        class="java.lang.Integer"/>
+
+    <!-- VARIABLES -->
+    <variable name="SaldoGrupo" class="java.math.BigDecimal" resetType="Group" resetGroup="GrupoBanco" calculation="Sum">
+        <variableExpression><![CDATA[$F{CBANsaldoactual}]]></variableExpression>
+        <initialValueExpression><![CDATA[new java.math.BigDecimal("0")]]></initialValueExpression>
+    </variable>
+    <variable name="SaldoTotal" class="java.math.BigDecimal" resetType="Report" calculation="Sum">
+        <variableExpression><![CDATA[$F{CBANsaldoactual}]]></variableExpression>
+        <initialValueExpression><![CDATA[new java.math.BigDecimal("0")]]></initialValueExpression>
+    </variable>
+    <variable name="TotalCuentas" class="java.lang.Integer" resetType="Report" calculation="Count">
+        <variableExpression><![CDATA[$F{CBANid}]]></variableExpression>
+        <initialValueExpression><![CDATA[0]]></initialValueExpression>
+    </variable>
+    <variable name="CuentasGrupo" class="java.lang.Integer" resetType="Group" resetGroup="GrupoBanco" calculation="Count">
+        <variableExpression><![CDATA[$F{CBANid}]]></variableExpression>
+        <initialValueExpression><![CDATA[0]]></initialValueExpression>
+    </variable>
+    <variable name="RowNumber" class="java.lang.Integer" resetType="Report" calculation="Count">
+        <variableExpression><![CDATA[$F{CBANid}]]></variableExpression>
+    </variable>
+
+    <!-- GRUPO POR BANCO -->
+    <group name="GrupoBanco" keepTogether="true">
+        <groupExpression><![CDATA[$F{Banid}]]></groupExpression>
+
+        <groupHeader>
+            <band height="38" splitType="Stretch">
+                <rectangle radius="4">
+                    <reportElement x="0" y="4" width="802" height="30" backcolor="#0D3B66" forecolor="#0D3B66"/>
+                    <graphicElement fill="Solid"><pen lineWidth="0.0"/></graphicElement>
+                </rectangle>
+                <rectangle>
+                    <reportElement x="0" y="4" width="5" height="30" backcolor="#E8A020" forecolor="#E8A020"/>
+                    <graphicElement fill="Solid"><pen lineWidth="0.0"/></graphicElement>
+                </rectangle>
+                <staticText>
+                    <reportElement x="8" y="4" width="20" height="30" forecolor="#E8A020"/>
+                    <textElement textAlignment="Center" verticalAlignment="Middle">
+                        <font size="12" isBold="true"/>
+                    </textElement>
+                    <text><![CDATA[★]]></text>
+                </staticText>
+                <staticText>
+                    <reportElement x="30" y="4" width="70" height="30" forecolor="#A8C8E8"/>
+                    <textElement verticalAlignment="Middle"><font size="7" isBold="true"/></textElement>
+                    <text><![CDATA[BANCO ID:]]></text>
+                </staticText>
+                <rectangle radius="8">
+                    <reportElement x="100" y="10" width="36" height="18" backcolor="#E8A020" forecolor="#E8A020"/>
+                    <graphicElement fill="Solid"><pen lineWidth="0.0"/></graphicElement>
+                </rectangle>
+                <textField>
+                    <reportElement x="100" y="10" width="36" height="18" forecolor="#0D3B66"/>
+                    <textElement textAlignment="Center" verticalAlignment="Middle">
+                        <font size="8" isBold="true"/>
+                    </textElement>
+                    <textFieldExpression><![CDATA[$F{Banid}]]></textFieldExpression>
+                </textField>
+                <line>
+                    <reportElement x="148" y="8" width="1" height="22" forecolor="#2E86C1"/>
+                </line>
+                <staticText>
+                    <reportElement x="155" y="4" width="200" height="30" forecolor="#7FB3D3"/>
+                    <textElement verticalAlignment="Middle"><font size="7"/></textElement>
+                    <text><![CDATA[Agrupación de cuentas por entidad bancaria]]></text>
+                </staticText>
+            </band>
+        </groupHeader>
+
+        <groupFooter>
+            <band height="36" splitType="Stretch">
+                <rectangle>
+                    <reportElement x="0" y="2" width="802" height="30" backcolor="#EBF5FB" forecolor="#EBF5FB"/>
+                    <graphicElement fill="Solid"><pen lineWidth="0.0"/></graphicElement>
+                </rectangle>
+                <line>
+                    <reportElement x="0" y="2" width="802" height="1" forecolor="#2E86C1"/>
+                </line>
+                <staticText>
+                    <reportElement x="0" y="4" width="209" height="20" forecolor="#1A5276"/>
+                    <textElement textAlignment="Right" verticalAlignment="Middle">
+                        <font size="8" isBold="true"/>
+                    </textElement>
+                    <text><![CDATA[Saldo total banco:]]></text>
+                </staticText>
+                <textField pattern="#,##0.00">
+                    <reportElement x="210" y="4" width="110" height="20" forecolor="#0D3B66"/>
+                    <textElement textAlignment="Right" verticalAlignment="Middle">
+                        <font size="9" isBold="true"/>
+                    </textElement>
+                    <textFieldExpression><![CDATA[$V{SaldoGrupo}]]></textFieldExpression>
+                </textField>
+                <staticText>
+                    <reportElement x="330" y="4" width="120" height="20" forecolor="#1A5276"/>
+                    <textElement textAlignment="Left" verticalAlignment="Middle">
+                        <font size="7"/>
+                    </textElement>
+                    <text><![CDATA[Cuentas en este banco:]]></text>
+                </staticText>
+                <textField>
+                    <reportElement x="450" y="4" width="40" height="20" forecolor="#0D3B66"/>
+                    <textElement textAlignment="Left" verticalAlignment="Middle">
+                        <font size="8" isBold="true"/>
+                    </textElement>
+                    <textFieldExpression><![CDATA[$V{CuentasGrupo}]]></textFieldExpression>
+                </textField>
+                <staticText>
+                    <reportElement x="500" y="6" width="70" height="14" forecolor="#666666"/>
+                    <textElement verticalAlignment="Middle"><font size="6"/></textElement>
+                    <text><![CDATA[Nivel de saldo:]]></text>
+                </staticText>
+                <rectangle radius="3">
+                    <reportElement x="572" y="9" width="200" height="10" backcolor="#D5D8DC" forecolor="#D5D8DC"/>
+                    <graphicElement fill="Solid"><pen lineWidth="0.0"/></graphicElement>
+                </rectangle>
+                <rectangle radius="3">
+                    <reportElement x="572" y="9" width="200" height="10" backcolor="#2E86C1" forecolor="#2E86C1"/>
+                    <graphicElement fill="Solid"><pen lineWidth="0.0"/></graphicElement>
+                </rectangle>
+                <textField pattern="0.0'%'">
+                    <reportElement x="775" y="6" width="27" height="14" forecolor="#1A5276"/>
+                    <textElement textAlignment="Right" verticalAlignment="Middle">
+                        <font size="6" isBold="true"/>
+                    </textElement>
+                    <textFieldExpression>
+                        <![CDATA[$P{MaxSaldo}.compareTo(java.math.BigDecimal.ZERO) > 0
+                            ? ($V{SaldoGrupo}.divide($P{MaxSaldo}, 4, java.math.RoundingMode.HALF_UP)
+                               .multiply(new java.math.BigDecimal("100")))
+                            : java.math.BigDecimal.ZERO]]>
+                    </textFieldExpression>
+                </textField>
+            </band>
+        </groupFooter>
+    </group>
+
+    <!-- BACKGROUND -->
+    <background>
+        <band splitType="Stretch"/>
+    </background>
+
+    <!-- TÍTULO -->
+    <title>
+        <band height="75" splitType="Stretch">
+            <rectangle>
+                <reportElement x="0" y="0" width="802" height="65" backcolor="#0D3B66" forecolor="#0D3B66"/>
+                <graphicElement fill="Solid"><pen lineWidth="0.0"/></graphicElement>
+            </rectangle>
+            <rectangle>
+                <reportElement x="0" y="0" width="6" height="65" backcolor="#E8A020" forecolor="#E8A020"/>
+                <graphicElement fill="Solid"><pen lineWidth="0.0"/></graphicElement>
+            </rectangle>
+            <rectangle>
+                <reportElement x="0" y="62" width="802" height="3" backcolor="#E8A020" forecolor="#E8A020"/>
+                <graphicElement fill="Solid"><pen lineWidth="0.0"/></graphicElement>
+            </rectangle>
+            <staticText>
+                <reportElement x="15" y="8" width="520" height="30" forecolor="#FFFFFF"/>
+                <textElement textAlignment="Left" verticalAlignment="Middle">
+                    <font size="20" isBold="true"/>
+                </textElement>
+                <text><![CDATA[REPORTE DE CUENTAS BANCARIAS]]></text>
+            </staticText>
+            <staticText>
+                <reportElement x="15" y="38" width="400" height="16" forecolor="#A8C8E8"/>
+                <textElement textAlignment="Left" verticalAlignment="Middle">
+                    <font size="8"/>
+                </textElement>
+                <text><![CDATA[Resumen consolidado de cuentas agrupadas por entidad bancaria]]></text>
+            </staticText>
+            <staticText>
+                <reportElement x="560" y="22" width="60" height="16" forecolor="#A8C8E8"/>
+                <textElement textAlignment="Right" verticalAlignment="Middle">
+                    <font size="7"/>
+                </textElement>
+                <text><![CDATA[Generado:]]></text>
+            </staticText>
+            <textField pattern="dd/MM/yyyy HH:mm">
+                <reportElement x="622" y="22" width="175" height="16" forecolor="#E8A020"/>
+                <textElement textAlignment="Right" verticalAlignment="Middle">
+                    <font size="8" isBold="true"/>
+                </textElement>
+                <textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+            </textField>
+        </band>
+    </title>
+
+    <!-- ENCABEZADO DE PÁGINA -->
+    <pageHeader>
+        <band height="18" splitType="Stretch">
+            <staticText>
+                <reportElement x="0" y="0" width="802" height="16" forecolor="#888888"/>
+                <textElement textAlignment="Right" verticalAlignment="Middle">
+                    <font size="7"/>
+                </textElement>
+                <text><![CDATA[Sistema Bancario — Reporte Interno Confidencial]]></text>
+            </staticText>
+        </band>
+    </pageHeader>
+
+    <!-- ENCABEZADO DE COLUMNAS -->
+    <columnHeader>
+        <band height="30" splitType="Stretch">
+            <rectangle>
+                <reportElement x="0" y="0" width="802" height="30" backcolor="#1A5276" forecolor="#1A5276"/>
+                <graphicElement fill="Solid"><pen lineWidth="0.0"/></graphicElement>
+            </rectangle>
+            <rectangle>
+                <reportElement x="0" y="27" width="802" height="3" backcolor="#E8A020" forecolor="#E8A020"/>
+                <graphicElement fill="Solid"><pen lineWidth="0.0"/></graphicElement>
+            </rectangle>
+            <staticText>
+                <reportElement x="0" y="0" width="45" height="27" forecolor="#FFFFFF"/>
+                <textElement textAlignment="Center" verticalAlignment="Middle">
+                    <font size="7" isBold="true"/>
+                </textElement>
+                <text><![CDATA[ID]]></text>
+            </staticText>
+            <staticText>
+                <reportElement x="45" y="0" width="155" height="27" forecolor="#FFFFFF"/>
+                <textElement textAlignment="Center" verticalAlignment="Middle">
+                    <font size="7" isBold="true"/>
+                </textElement>
+                <text><![CDATA[NÚMERO DE CUENTA]]></text>
+            </staticText>
+            <staticText>
+                <reportElement x="200" y="0" width="110" height="27" forecolor="#FFFFFF"/>
+                <textElement textAlignment="Center" verticalAlignment="Middle">
+                    <font size="7" isBold="true"/>
+                </textElement>
+                <text><![CDATA[SALDO ACTUAL]]></text>
+            </staticText>
+            <staticText>
+                <reportElement x="310" y="0" width="120" height="27" forecolor="#FFFFFF"/>
+                <textElement textAlignment="Center" verticalAlignment="Middle">
+                    <font size="7" isBold="true"/>
+                </textElement>
+                <text><![CDATA[FECHA APERTURA]]></text>
+            </staticText>
+            <staticText>
+                <reportElement x="430" y="0" width="80" height="27" forecolor="#FFFFFF"/>
+                <textElement textAlignment="Center" verticalAlignment="Middle">
+                    <font size="7" isBold="true"/>
+                </textElement>
+                <text><![CDATA[ID BANCO]]></text>
+            </staticText>
+            <staticText>
+                <reportElement x="510" y="0" width="80" height="27" forecolor="#FFFFFF"/>
+                <textElement textAlignment="Center" verticalAlignment="Middle">
+                    <font size="7" isBold="true"/>
+                </textElement>
+                <text><![CDATA[ID CLIENTE]]></text>
+            </staticText>
+            <staticText>
+                <reportElement x="590" y="0" width="212" height="27" forecolor="#FFFFFF"/>
+                <textElement textAlignment="Center" verticalAlignment="Middle">
+                    <font size="7" isBold="true"/>
+                </textElement>
+                <text><![CDATA[TIPO DE CUENTA]]></text>
+            </staticText>
+        </band>
+    </columnHeader>
+
+    <!-- DETALLE -->
+    <detail>
+        <band height="24" splitType="Stretch">
+            <rectangle>
+                <reportElement x="0" y="0" width="802" height="23" backcolor="#EBF5FB" forecolor="#EBF5FB" mode="Opaque">
+                    <printWhenExpression><![CDATA[$V{RowNumber} % 2 == 0]]></printWhenExpression>
+                </reportElement>
+                <graphicElement fill="Solid"><pen lineWidth="0.0"/></graphicElement>
+            </rectangle>
+            <rectangle>
+                <reportElement x="0" y="0" width="802" height="23" backcolor="#FFFFFF" forecolor="#FFFFFF" mode="Opaque">
+                    <printWhenExpression><![CDATA[$V{RowNumber} % 2 != 0]]></printWhenExpression>
+                </reportElement>
+                <graphicElement fill="Solid"><pen lineWidth="0.0"/></graphicElement>
+            </rectangle>
+            <rectangle>
+                <reportElement x="0" y="0" width="3" height="23" backcolor="#2E86C1" forecolor="#2E86C1"/>
+                <graphicElement fill="Solid"><pen lineWidth="0.0"/></graphicElement>
+            </rectangle>
+            <rectangle radius="6">
+                <reportElement x="5" y="4" width="36" height="15" backcolor="#2E86C1" forecolor="#2E86C1"/>
+                <graphicElement fill="Solid"><pen lineWidth="0.0"/></graphicElement>
+            </rectangle>
+            <textField>
+                <reportElement x="5" y="4" width="36" height="15" forecolor="#FFFFFF"/>
+                <textElement textAlignment="Center" verticalAlignment="Middle">
+                    <font size="7" isBold="true"/>
+                </textElement>
+                <textFieldExpression><![CDATA[$F{CBANid}]]></textFieldExpression>
+            </textField>
+            <textField isBlankWhenNull="true">
+                <reportElement x="45" y="0" width="155" height="23" forecolor="#1C2833"/>
+                <textElement textAlignment="Center" verticalAlignment="Middle">
+                    <font size="8"/>
+                </textElement>
+                <textFieldExpression><![CDATA[$F{CBANnumerocuenta}]]></textFieldExpression>
+            </textField>
+            <textField pattern="#,##0.00" isBlankWhenNull="true">
+                <reportElement x="200" y="0" width="110" height="23" forecolor="#1A5276"/>
+                <textElement textAlignment="Right" verticalAlignment="Middle">
+                    <font size="8" isBold="true"/>
+                </textElement>
+                <textFieldExpression><![CDATA[$F{CBANsaldoactual}]]></textFieldExpression>
+            </textField>
+            <textField isBlankWhenNull="true">
+                <reportElement x="310" y="0" width="120" height="23" forecolor="#555555"/>
+                <textElement textAlignment="Center" verticalAlignment="Middle">
+                    <font size="8"/>
+                </textElement>
+                <textFieldExpression>
+                    <![CDATA[$F{CBANfechaapertura} != null
+                        ? new java.text.SimpleDateFormat("dd MMM yyyy", new java.util.Locale("es","GT"))
+                              .format($F{CBANfechaapertura})
+                        : ""]]>
+                </textFieldExpression>
+            </textField>
+            <rectangle radius="5">
+                <reportElement x="453" y="5" width="34" height="14" backcolor="#E8A020" forecolor="#E8A020"/>
+                <graphicElement fill="Solid"><pen lineWidth="0.0"/></graphicElement>
+            </rectangle>
+            <textField>
+                <reportElement x="453" y="5" width="34" height="14" forecolor="#FFFFFF"/>
+                <textElement textAlignment="Center" verticalAlignment="Middle">
+                    <font size="7" isBold="true"/>
+                </textElement>
+                <textFieldExpression><![CDATA[$F{Banid}]]></textFieldExpression>
+            </textField>
+            <textField isBlankWhenNull="true">
+                <reportElement x="510" y="0" width="80" height="23" forecolor="#333333"/>
+                <textElement textAlignment="Center" verticalAlignment="Middle">
+                    <font size="8"/>
+                </textElement>
+                <textFieldExpression><![CDATA[$F{Cliid}]]></textFieldExpression>
+            </textField>
+            <rectangle radius="5">
+                <reportElement x="620" y="5" width="34" height="14" backcolor="#1E8449" forecolor="#1E8449"/>
+                <graphicElement fill="Solid"><pen lineWidth="0.0"/></graphicElement>
+            </rectangle>
+            <textField>
+                <reportElement x="620" y="5" width="34" height="14" forecolor="#FFFFFF"/>
+                <textElement textAlignment="Center" verticalAlignment="Middle">
+                    <font size="7" isBold="true"/>
+                </textElement>
+                <textFieldExpression><![CDATA[$F{TCidcuenta}]]></textFieldExpression>
+            </textField>
+            <line>
+                <reportElement x="3" y="23" width="799" height="1" forecolor="#D5D8DC"/>
+            </line>
+        </band>
+    </detail>
+
+    <!-- COLUMN FOOTER -->
+    <columnFooter>
+        <band height="8" splitType="Stretch"/>
+    </columnFooter>
+
+    <!-- PIE DE PÁGINA -->
+    <pageFooter>
+        <band height="28" splitType="Stretch">
+            <line>
+                <reportElement x="0" y="0" width="802" height="1" forecolor="#E8A020"/>
+            </line>
+            <staticText>
+                <reportElement x="0" y="4" width="200" height="18" forecolor="#555555"/>
+                <textElement textAlignment="Left" verticalAlignment="Middle">
+                    <font size="7"/>
+                </textElement>
+                <text><![CDATA[© Sistema Bancario]]></text>
+            </staticText>
+            <textField>
+                <reportElement x="200" y="4" width="402" height="18" forecolor="#333333"/>
+                <textElement textAlignment="Center" verticalAlignment="Middle">
+                    <font size="7" isBold="true"/>
+                </textElement>
+                <textFieldExpression>
+                    <![CDATA["Página " + $V{PAGE_NUMBER} + " de " + $V{PAGE_COUNT}]]>
+                </textFieldExpression>
+            </textField>
+            <textField pattern="dd/MM/yyyy HH:mm">
+                <reportElement x="602" y="4" width="200" height="18" forecolor="#555555"/>
+                <textElement textAlignment="Right" verticalAlignment="Middle">
+                    <font size="7"/>
+                </textElement>
+                <textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+            </textField>
+        </band>
+    </pageFooter>
+
+    <!-- SUMMARY -->
+    <summary>
+        <band height="85" splitType="Stretch">
+            <rectangle>
+                <reportElement x="0" y="5" width="802" height="75" backcolor="#0D3B66" forecolor="#0D3B66"/>
+                <graphicElement fill="Solid"><pen lineWidth="0.0"/></graphicElement>
+            </rectangle>
+            <rectangle>
+                <reportElement x="0" y="5" width="802" height="4" backcolor="#E8A020" forecolor="#E8A020"/>
+                <graphicElement fill="Solid"><pen lineWidth="0.0"/></graphicElement>
+            </rectangle>
+            <line>
+                <reportElement x="400" y="14" width="1" height="56" forecolor="#2E86C1"/>
+            </line>
+            <staticText>
+                <reportElement x="20" y="15" width="200" height="18" forecolor="#A8C8E8"/>
+                <textElement textAlignment="Left" verticalAlignment="Middle">
+                    <font size="8"/>
+                </textElement>
+                <text><![CDATA[Total de cuentas registradas:]]></text>
+            </staticText>
+            <textField>
+                <reportElement x="20" y="35" width="160" height="35" forecolor="#E8A020"/>
+                <textElement textAlignment="Left" verticalAlignment="Middle">
+                    <font size="26" isBold="true"/>
+                </textElement>
+                <textFieldExpression><![CDATA[$V{REPORT_COUNT}]]></textFieldExpression>
+            </textField>
+            <staticText>
+                <reportElement x="185" y="50" width="50" height="16" forecolor="#7FB3D3"/>
+                <textElement textAlignment="Left" verticalAlignment="Middle">
+                    <font size="7"/>
+                </textElement>
+                <text><![CDATA[cuentas]]></text>
+            </staticText>
+            <staticText>
+                <reportElement x="415" y="15" width="200" height="18" forecolor="#A8C8E8"/>
+                <textElement textAlignment="Left" verticalAlignment="Middle">
+                    <font size="8"/>
+                </textElement>
+                <text><![CDATA[Saldo total acumulado (Q):]]></text>
+            </staticText>
+            <textField pattern="#,##0.00" isBlankWhenNull="true">
+                <reportElement x="415" y="35" width="360" height="35" forecolor="#E8A020"/>
+                <textElement textAlignment="Left" verticalAlignment="Middle">
+                    <font size="22" isBold="true"/>
+                </textElement>
+                <textFieldExpression><![CDATA[$V{SaldoTotal}]]></textFieldExpression>
+            </textField>
+        </band>
+    </summary>
+
+</jasperReport>

@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="595" pageHeight="842" whenNoDataType="NoDataSection" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="180ac281-8241-489f-810d-fc9fdfa129a6">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="36"/>
+	<queryString language="SQL">
+		<![CDATA[SELECT * FROM sig.marcas;]]>
+	</queryString>
+	<field name="marcaid" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="marnombre" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="marestado" class="java.lang.Boolean">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="marcomision" class="java.math.BigDecimal">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch">
+			<staticText>
+				<reportElement x="153" y="13" width="251" height="39" uuid="f6d643a4-6879-4a85-ad8b-77545970ce33"/>
+				<textElement>
+					<font size="28"/>
+				</textElement>
+				<text><![CDATA[Reporte de Marcas]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="35" splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="61" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="100" height="20" uuid="2ada9f96-62a3-466a-baec-367531b4acae"/>
+				<text><![CDATA[marcaid]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="126" y="0" width="100" height="20" uuid="62eb3843-ee0d-4a48-8685-0c9da627f524"/>
+				<text><![CDATA[marnombre]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="259" y="2" width="100" height="20" uuid="95a19d44-7611-470e-8813-81b9a2da8809"/>
+				<text><![CDATA[marestado]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="404" y="2" width="100" height="20" uuid="85b752a5-895a-41d4-8c9e-61c124c49520"/>
+				<text><![CDATA[marcomision]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="125" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="0" width="100" height="20" uuid="3b1f1827-d372-469f-bd5f-71a61e4303b3"/>
+				<textFieldExpression><![CDATA[$F{marcaid}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="126" y="0" width="100" height="20" uuid="9a12e1fc-cfbb-4171-bec4-03750d346bba"/>
+				<textFieldExpression><![CDATA[$F{marnombre}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="259" y="0" width="100" height="20" uuid="d2a7ac8c-4b01-4357-b2ad-c0a9634eeddd"/>
+				<textFieldExpression><![CDATA[$F{marestado}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="404" y="0" width="100" height="20" uuid="6454b4dd-30df-418d-9a87-35c0d656f2f1"/>
+				<textFieldExpression><![CDATA[$F{marcomision}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+	<noData>
+		<band height="50">
+			<staticText>
+				<reportElement x="103" y="0" width="344" height="39" uuid="5e5d0551-7070-4429-bec8-3dd3166fe78a"/>
+				<textElement>
+					<font size="28"/>
+				</textElement>
+				<text><![CDATA[No hay datos para mostrar]]></text>
+			</staticText>
+		</band>
+	</noData>
+</jasperReport>

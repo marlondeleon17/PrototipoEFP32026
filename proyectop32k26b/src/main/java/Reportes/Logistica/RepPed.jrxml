@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="955" pageHeight="842" whenNoDataType="NoDataSection" columnWidth="915" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="21e56a27-23bb-4efe-8526-6c9992b207df">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="87"/>
+	<property name="ireport.y" value="0"/>
+	<queryString language="SQL">
+		<![CDATA[SELECT * FROM sig.pedidos;]]>
+	</queryString>
+	<field name="Pedid" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="Cliid" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="Prodid" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="Pedcantidad" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="Pedmarca" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="Pedlinea" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="Pedestado" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch">
+			<staticText>
+				<reportElement x="148" y="16" width="258" height="40" uuid="637e95ed-c3fb-40e9-85ac-9f6a4943a100"/>
+				<textElement>
+					<font size="28"/>
+				</textElement>
+				<text><![CDATA[Reporte de Pedidos]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="35" splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="61" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="100" height="20" uuid="268fa736-1963-42cc-a0f3-ddc7a2111f8e"/>
+				<text><![CDATA[Pedid]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="125" y="0" width="100" height="20" uuid="e3730e1d-eb09-426e-8c61-e71411cdc500"/>
+				<text><![CDATA[Cliid]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="256" y="0" width="100" height="20" uuid="6f4a88f4-fb45-44dc-a702-3f0c6c29404e"/>
+				<text><![CDATA[Prodid]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="393" y="0" width="100" height="20" uuid="1a1f31f8-2bfb-49e2-9b1a-88f079cce045"/>
+				<text><![CDATA[Pedcantidad]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="525" y="0" width="100" height="20" uuid="bd4c47fc-b0cc-41bd-9754-000f24d1fd87"/>
+				<text><![CDATA[Pedmarca]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="657" y="0" width="100" height="20" uuid="c10001ae-0b49-4c38-94d6-e23348bc9e3a"/>
+				<text><![CDATA[Pedlinea]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="785" y="0" width="100" height="20" uuid="86ff80e5-0838-4818-88f4-bd5c1c2ec4be"/>
+				<text><![CDATA[Pedestado]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="125" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="0" width="100" height="20" uuid="4e537b69-f578-4a33-9120-c76084d7766e"/>
+				<textFieldExpression><![CDATA[$F{Pedid}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="125" y="0" width="100" height="20" uuid="3f1de55a-4307-407a-98ca-ee4fa6181c91"/>
+				<textFieldExpression><![CDATA[$F{Cliid}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="256" y="0" width="100" height="20" uuid="cc700510-fad5-47c3-8f3e-ca46cf9941b1"/>
+				<textFieldExpression><![CDATA[$F{Prodid}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="393" y="0" width="100" height="20" uuid="79b00f23-50d0-4fac-b012-439a4f2ca994"/>
+				<textFieldExpression><![CDATA[$F{Pedcantidad}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="525" y="0" width="100" height="20" uuid="12ba7f85-5e93-4502-9cf6-0d012855efef"/>
+				<textFieldExpression><![CDATA[$F{Pedmarca}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="657" y="0" width="100" height="20" uuid="62028225-bd47-4365-b9ce-008bb89811a3"/>
+				<textFieldExpression><![CDATA[$F{Pedlinea}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="785" y="0" width="100" height="20" uuid="18467634-456f-4f91-ab4a-abd687c7ae86"/>
+				<textFieldExpression><![CDATA[$F{Pedestado}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+	<noData>
+		<band height="50">
+			<staticText>
+				<reportElement x="104" y="0" width="337" height="40" uuid="5da1ff3d-b2cb-4c29-961d-d6568cc52476"/>
+				<textElement>
+					<font size="28"/>
+				</textElement>
+				<text><![CDATA[No hay datos para mostrar]]></text>
+			</staticText>
+		</band>
+	</noData>
+</jasperReport>

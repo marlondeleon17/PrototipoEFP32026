@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="1902698e-5d8a-4b71-bd03-59e291579cfc">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="28"/>
+	<queryString language="SQL">
+		<![CDATA[SELECT * FROM sig.perfiles;]]>
+	</queryString>
+	<field name="Percodigo" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="Pernombre" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="Perestado" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch"/>
+	</title>
+	<pageHeader>
+		<band height="35" splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="61" splitType="Stretch">
+			<staticText>
+				<reportElement x="40" y="2" width="100" height="20" uuid="b1beb9a2-4a6c-4fcd-95c6-5554ac6e358a"/>
+				<text><![CDATA[ID]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="213" y="2" width="100" height="20" uuid="954dd235-b33c-430b-86e0-2ecfd158106a"/>
+				<text><![CDATA[Nombre]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="412" y="2" width="100" height="20" uuid="ed14d966-979b-4255-9d40-9dc2d77f593d"/>
+				<text><![CDATA[Perestado]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="125" splitType="Stretch">
+			<textField>
+				<reportElement x="40" y="23" width="100" height="20" uuid="db51d8b7-f9e1-4466-9ba8-08f495bde034"/>
+				<textFieldExpression><![CDATA[$F{Percodigo}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="213" y="19" width="100" height="20" uuid="fe1939ab-c6be-4007-a430-14311831c1bc"/>
+				<textFieldExpression><![CDATA[$F{Pernombre}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="412" y="15" width="100" height="20" uuid="d4a33261-a124-408d-a158-85007c6eba25"/>
+				<textFieldExpression><![CDATA[$F{Perestado}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>

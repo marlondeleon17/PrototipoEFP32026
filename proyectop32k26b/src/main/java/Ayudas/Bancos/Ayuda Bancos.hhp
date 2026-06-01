@@ -1,0 +1,26 @@
+[OPTIONS]
+Compatibility=1.1 or later
+Compiled file=Ayuda Bancos.chm
+Contents file=Sistema Banco.hhc
+Default Window=Ayuda Bancos
+Display compile progress=No
+Language=0x100a Español (Guatemala)
+
+[WINDOWS]
+Ayuda Bancos="Capacitación - Bancos","Sistema Banco.hhc",,"Sistema Bancos.html","Sistema Bancos.html","TipoCuenta.html","TipoCuenta","BitacoraBancaria.html","BitacoraBancaria",0x23520,,0xc387e,,,,,,,,0
+
+
+[FILES]
+Banco.html
+BitacoraBancaria.html
+Clientes.html
+ConciliacionBancaria.html
+CuentaBancaria.html
+EstadoBancario.html
+MovimientoBancario.html
+Sistema Bancos.html
+TipoCuenta.html
+TipoTransaccion.html
+
+[INFOTYPES]
+

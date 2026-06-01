@@ -1,0 +1,261 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="RBanco" language="groovy" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="34194f59-e48a-43ce-8a85-6b3d66626bfe">
+	<queryString language="SQL">
+		<![CDATA[SELECT * FROM `banco` ORDER BY Banid]]>
+	</queryString>
+	<field name="Banid" class="java.lang.Integer"/>
+	<field name="Bannombre" class="java.lang.String"/>
+	<field name="Bandireccion" class="java.lang.String"/>
+	<field name="Bantelefono" class="java.lang.String"/>
+	<field name="Bancorreo" class="java.lang.String"/>
+	<field name="Banfecharegistro" class="java.time.LocalDateTime"/>
+	<variable name="ROW_COLOR" class="java.lang.Boolean" resetType="None">
+		<variableExpression><![CDATA[$V{REPORT_COUNT} % 2 == 0]]></variableExpression>
+	</variable>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="80" splitType="Stretch">
+			<rectangle>
+				<reportElement x="0" y="0" width="6" height="80" forecolor="#B8960C" backcolor="#B8960C" uuid="124a7067-cb3d-4bf9-986a-a1ce883bd729"/>
+				<graphicElement fill="Solid">
+					<pen lineWidth="0.0"/>
+				</graphicElement>
+			</rectangle>
+			<rectangle>
+				<reportElement x="6" y="0" width="796" height="80" forecolor="#1C2233" backcolor="#1C2233" uuid="215a589e-e7e6-4740-a0c5-f3440cf566a9"/>
+				<graphicElement fill="Solid">
+					<pen lineWidth="0.0"/>
+				</graphicElement>
+			</rectangle>
+			<rectangle>
+				<reportElement x="6" y="74" width="796" height="2" forecolor="#B8960C" backcolor="#B8960C" uuid="63386ae1-88b4-4c6f-af79-0744ba23f35b"/>
+				<graphicElement fill="Solid">
+					<pen lineWidth="0.0"/>
+				</graphicElement>
+			</rectangle>
+			<staticText>
+				<reportElement x="30" y="12" width="300" height="14" forecolor="#B8960C" uuid="20ad04f3-fd17-47ae-8c9c-b39e8cf9425c"/>
+				<textElement verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[SISTEMA BANCARIO  ·  MÓDULO DE BANCOS]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="30" y="28" width="500" height="30" forecolor="#FFFFFF" uuid="9994f080-e296-4687-bb2f-920b6da8edef"/>
+				<textElement verticalAlignment="Middle">
+					<font size="22" isBold="true"/>
+				</textElement>
+				<text><![CDATA[REPORTE DE BANCOS]]></text>
+			</staticText>
+			<textField pattern="dd &apos;de&apos; MMMM, yyyy">
+				<reportElement x="560" y="28" width="220" height="18" forecolor="#A0A8BF" uuid="44453fd1-b5bd-4c05-9e25-9bfcdca9cd8b"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<textField pattern="HH:mm &apos;hrs&apos;">
+				<reportElement x="560" y="46" width="220" height="14" forecolor="#606880" uuid="f54debe0-d7fb-490c-b2d3-9d57165a11b8"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="4" splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="28" splitType="Stretch">
+			<rectangle>
+				<reportElement x="0" y="0" width="802" height="28" forecolor="#2C3347" backcolor="#2C3347" uuid="452803e3-9d16-44b0-8785-5e70b7f6d5b6"/>
+				<graphicElement fill="Solid">
+					<pen lineWidth="0.0"/>
+				</graphicElement>
+			</rectangle>
+			<rectangle>
+				<reportElement x="0" y="26" width="802" height="2" forecolor="#B8960C" backcolor="#B8960C" uuid="10c94a08-346f-4b38-9fb7-3021c1026c61"/>
+				<graphicElement fill="Solid">
+					<pen lineWidth="0.0"/>
+				</graphicElement>
+			</rectangle>
+			<staticText>
+				<reportElement x="4" y="0" width="50" height="28" forecolor="#D4AF37" uuid="b1c225c3-6d74-4eda-9fca-9b6422ea6654"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[ID]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="54" y="0" width="160" height="28" forecolor="#D4AF37" uuid="bd5e27a5-34d4-4556-a4c7-a960bf0a249d"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[NOMBRE DEL BANCO]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="214" y="0" width="180" height="28" forecolor="#D4AF37" uuid="e5caa3a0-7044-4a4a-8a5e-37402a80f09c"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[DIRECCIÓN]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="394" y="0" width="110" height="28" forecolor="#D4AF37" uuid="19fd4895-1569-4177-a446-4b1c260af952"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[TELÉFONO]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="504" y="0" width="180" height="28" forecolor="#D4AF37" uuid="7e08e07b-d0eb-4ef4-b6a8-2e0120d996d2"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[CORREO ELECTRÓNICO]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="684" y="0" width="114" height="28" forecolor="#D4AF37" uuid="0e929280-5109-4769-9e86-ed43f56ef417"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[FECHA REGISTRO]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="22" splitType="Stretch">
+			<rectangle>
+				<reportElement x="0" y="0" width="802" height="22" forecolor="#F0F2F7" backcolor="#F0F2F7" uuid="d9df57b7-6d09-432f-9b36-57bc1a57fa0e">
+					<printWhenExpression><![CDATA[$V{ROW_COLOR}]]></printWhenExpression>
+				</reportElement>
+				<graphicElement fill="Solid">
+					<pen lineWidth="0.0"/>
+				</graphicElement>
+			</rectangle>
+			<rectangle>
+				<reportElement x="0" y="0" width="802" height="22" forecolor="#FFFFFF" backcolor="#FFFFFF" uuid="1239c065-046b-4cde-bc8f-10d0ac4f5aaf">
+					<printWhenExpression><![CDATA[!$V{ROW_COLOR}]]></printWhenExpression>
+				</reportElement>
+				<graphicElement fill="Solid">
+					<pen lineWidth="0.0"/>
+				</graphicElement>
+			</rectangle>
+			<rectangle>
+				<reportElement x="0" y="2" width="3" height="18" forecolor="#D4AF37" backcolor="#D4AF37" uuid="2119ede6-b46e-432d-aa3d-ec108181667c"/>
+				<graphicElement fill="Solid">
+					<pen lineWidth="0.0"/>
+				</graphicElement>
+			</rectangle>
+			<line>
+				<reportElement x="0" y="21" width="802" height="1" forecolor="#DDE0EA" uuid="62f836d2-9f01-4409-abeb-4e1cc71dce1e"/>
+			</line>
+			<textField>
+				<reportElement x="4" y="0" width="50" height="22" forecolor="#1C2233" uuid="10fffba0-1b4f-4e3a-ad78-41a4580fe3a5"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{Banid}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="54" y="0" width="160" height="22" forecolor="#1C2233" uuid="a1bf75af-cfee-4602-82a6-69228c79a3c1"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font size="8" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{Bannombre}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="214" y="0" width="180" height="22" forecolor="#3A4260" uuid="d30209c5-e626-43ae-8f3a-54d3b202be3f"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{Bandireccion}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="394" y="0" width="110" height="22" forecolor="#3A4260" uuid="422ad9f6-b5b3-47ab-9d1b-4e7e3176f523"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{Bantelefono}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="504" y="0" width="180" height="22" forecolor="#185FA5" uuid="ce7b7006-659b-4af0-8e23-79759dc50772"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{Bancorreo}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="684" y="0" width="114" height="22" forecolor="#3A4260" uuid="528dc70a-d37c-4e78-9884-8123d7a36747"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA["" + $F{Banfecharegistro}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="6" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="28" splitType="Stretch">
+			<line>
+				<reportElement x="0" y="0" width="802" height="1" forecolor="#B8960C" uuid="7726ed08-b1c8-4c19-af7f-dee62f92c19c"/>
+			</line>
+			<staticText>
+				<reportElement x="0" y="4" width="300" height="18" forecolor="#8890A8" uuid="16950858-a790-4029-bbc7-8e6a691c6175"/>
+				<textElement verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[Sistema Bancario  —  Reporte de Bancos]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="300" y="4" width="202" height="18" forecolor="#3A4260" uuid="5f939f0a-1a74-4198-a7cc-9d6b14749471"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Página  " + $V{PAGE_NUMBER} + "  /  " + $V{PAGE_COUNT}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="502" y="4" width="300" height="18" forecolor="#8890A8" uuid="f219d220-c4e2-4ee1-963f-34f973814689"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[Documento generado automáticamente  —  Uso interno]]></text>
+			</staticText>
+		</band>
+	</pageFooter>
+	<summary>
+		<band height="50" splitType="Stretch">
+			<rectangle>
+				<reportElement x="0" y="10" width="802" height="36" forecolor="#1C2233" backcolor="#1C2233" uuid="852c1ade-26e8-4d4d-b831-33ad734ed099"/>
+				<graphicElement fill="Solid">
+					<pen lineWidth="0.0"/>
+				</graphicElement>
+			</rectangle>
+			<rectangle>
+				<reportElement x="0" y="10" width="5" height="36" forecolor="#B8960C" backcolor="#B8960C" uuid="8c0e179f-3819-43d8-b5d1-67488d487e6c"/>
+				<graphicElement fill="Solid">
+					<pen lineWidth="0.0"/>
+				</graphicElement>
+			</rectangle>
+			<staticText>
+				<reportElement x="20" y="10" width="200" height="36" forecolor="#A0A8BF" uuid="7f21671e-4c78-4229-9cbf-800ef4b82b68"/>
+				<textElement verticalAlignment="Middle">
+					<font size="9"/>
+				</textElement>
+				<text><![CDATA[TOTAL DE BANCOS REGISTRADOS]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="220" y="10" width="80" height="36" forecolor="#D4AF37" uuid="ce634e19-af13-40d7-94cc-f859626b0ed2"/>
+				<textElement verticalAlignment="Middle">
+					<font size="18" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{REPORT_COUNT}]]></textFieldExpression>
+			</textField>
+		</band>
+	</summary>
+</jasperReport>

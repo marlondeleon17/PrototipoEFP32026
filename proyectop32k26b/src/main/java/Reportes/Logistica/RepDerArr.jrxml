@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="595" pageHeight="842" whenNoDataType="NoDataSection" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="828cfa1b-6000-4f11-ab32-0914b33afb1d">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="111"/>
+	<queryString language="SQL">
+		<![CDATA[SELECT * FROM sig.detallearribo;]]>
+	</queryString>
+	<field name="Detallearriboid" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="Arriboid" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="Prodid" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="Detarribocantidad" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="Detarribopreciounitariocompra" class="java.math.BigDecimal">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch">
+			<staticText>
+				<reportElement x="100" y="18" width="357" height="46" uuid="ab0daf22-3818-4218-9413-f9d51ba5ec32"/>
+				<textElement>
+					<font size="20"/>
+				</textElement>
+				<text><![CDATA[REPORTE DE DETALLE DE ARRIBOS]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="35" splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="61" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="2" width="100" height="20" uuid="652eb031-12d4-438b-b4d6-e078ec10a891"/>
+				<text><![CDATA[Detallearriboid]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="124" y="2" width="61" height="20" uuid="777288c9-cf5c-4b8b-b948-cbdb56087026"/>
+				<text><![CDATA[Arriboid]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="209" y="2" width="46" height="20" uuid="8ccb302d-1085-408f-abdf-5bc7fec36b60"/>
+				<text><![CDATA[Prodid]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="295" y="2" width="100" height="20" uuid="29cd6c30-62f7-47d0-9476-f130a637907a"/>
+				<text><![CDATA[Detarribocantidad]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="435" y="2" width="100" height="20" uuid="19f9ab0c-df0e-438b-9b7e-e41ceea579f5"/>
+				<text><![CDATA[Detarribopreciounitariocompra]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="206" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="0" width="100" height="20" uuid="7244176a-5fcd-43c2-bc63-d1935c8fd78b"/>
+				<textFieldExpression><![CDATA[$F{Detallearriboid}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="124" y="0" width="61" height="20" uuid="a1a19f9f-699d-434c-af40-dc8221153b4c"/>
+				<textFieldExpression><![CDATA[$F{Arriboid}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="209" y="0" width="58" height="20" uuid="485e0f83-7a54-4048-969c-d30564ea6ccb"/>
+				<textFieldExpression><![CDATA[$F{Prodid}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="295" y="0" width="100" height="20" uuid="3a0d00c4-00dd-4e76-b312-8e14f4b7f1f9"/>
+				<textFieldExpression><![CDATA[$F{Detarribocantidad}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="435" y="0" width="100" height="20" uuid="ac7336bb-4a61-4608-bb77-554566d3eef3"/>
+				<textFieldExpression><![CDATA[$F{Detarribopreciounitariocompra}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+	<noData>
+		<band height="50">
+			<staticText>
+				<reportElement x="109" y="0" width="348" height="50" uuid="aa2d08c4-e06f-4907-b157-440e2d2d4c6d"/>
+				<textElement>
+					<font size="20"/>
+				</textElement>
+				<text><![CDATA[NO HAY DATOS PARA MOSTRAR]]></text>
+			</staticText>
+		</band>
+	</noData>
+</jasperReport>

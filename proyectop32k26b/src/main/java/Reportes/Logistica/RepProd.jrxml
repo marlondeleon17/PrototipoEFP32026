@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="1012" pageHeight="842" whenNoDataType="NoDataSection" columnWidth="972" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="d50078dc-6629-46a0-8df3-c7d1d3ff1eb9">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<queryString>
+		<![CDATA[SELECT * FROM sig.productos;]]>
+	</queryString>
+	<field name="Prodid" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="Prodnombre" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="Prodstockactual" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="Prodpuntoreorden" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="Prodprecioventa" class="java.math.BigDecimal">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="lineaid" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="marcaid" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="prodcomision" class="java.math.BigDecimal">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch">
+			<staticText>
+				<reportElement x="292" y="21" width="382" height="58" uuid="28ec5396-92d7-4a8b-b123-0a533c8af37e"/>
+				<textElement>
+					<font size="28"/>
+				</textElement>
+				<text><![CDATA[REPORTE DE PRODUCTOS]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="35" splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="61" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="100" height="20" uuid="ea45a211-c806-40bf-8998-f67d42a28408"/>
+				<text><![CDATA[Prodid]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="122" y="0" width="100" height="20" uuid="6770ade8-a34e-4fce-b98d-b077472a6a10"/>
+				<text><![CDATA[Prodnombre]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="246" y="0" width="100" height="20" uuid="dec2b008-2b58-48f1-b4c6-4b7c13047e52"/>
+				<text><![CDATA[Prodstockactual]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="370" y="0" width="100" height="20" uuid="881552ec-dd4f-48b5-ab05-8a1f9e52eb6b"/>
+				<text><![CDATA[Prodpuntoreorden]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="486" y="0" width="100" height="20" uuid="94407fb4-d971-43c5-ab4a-c746c66692c0"/>
+				<text><![CDATA[Prodprecioventa]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="606" y="0" width="100" height="20" uuid="c1b3d015-5f78-46f6-bce1-e2fa0295dde6"/>
+				<text><![CDATA[lineaid]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="728" y="0" width="100" height="20" uuid="545cf09a-af8c-4cbb-a0b0-c04b00a02cab"/>
+				<text><![CDATA[marcaid]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="853" y="0" width="100" height="20" uuid="8a89bb7c-7d5c-4ebb-8a6e-db0f8aaea138"/>
+				<text><![CDATA[prodcomision]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="125" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="0" width="100" height="20" uuid="a30ec1c9-581d-4ed0-8a84-0477bc2291bb"/>
+				<textFieldExpression><![CDATA[$F{Prodid}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="122" y="0" width="100" height="20" uuid="39251714-5f22-4739-8ed0-72f89585dbaa"/>
+				<textFieldExpression><![CDATA[$F{Prodnombre}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="246" y="0" width="100" height="20" uuid="42f68b0f-b57b-4665-89a9-8d983818a883"/>
+				<textFieldExpression><![CDATA[$F{Prodstockactual}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="370" y="0" width="100" height="20" uuid="2e4bb574-b309-4b72-a67a-a42620f49920"/>
+				<textFieldExpression><![CDATA[$F{Prodpuntoreorden}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="486" y="0" width="100" height="20" uuid="e00b54d0-f605-418b-b9a2-8049125e24d2"/>
+				<textFieldExpression><![CDATA[$F{Prodprecioventa}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="606" y="0" width="100" height="20" uuid="7ab00fac-4e4c-4ad9-9254-51bdcfb17ff4"/>
+				<textFieldExpression><![CDATA[$F{lineaid}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="728" y="0" width="100" height="20" uuid="4a40595e-3c2b-4b1f-a4a7-42df654351d0"/>
+				<textFieldExpression><![CDATA[$F{marcaid}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="853" y="0" width="100" height="20" uuid="667e9285-f862-4963-8801-e74b926082a1"/>
+				<textFieldExpression><![CDATA[$F{prodcomision}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+	<noData>
+		<band height="50">
+			<staticText>
+				<reportElement x="247" y="0" width="459" height="50" uuid="bb35f00d-6c02-4b9a-822f-08b6f2af7a30"/>
+				<textElement>
+					<font size="28"/>
+				</textElement>
+				<text><![CDATA[NO HAY DATOS PARA MOSTRAR]]></text>
+			</staticText>
+		</band>
+	</noData>
+</jasperReport>

@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="ec955fbe-60b9-4364-90a8-e42d42850593">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<queryString language="SQL">
+		<![CDATA[SELECT * FROM sig.conceptosplanilla;]]>
+	</queryString>
+	<field name="Concodigo" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="Connombre" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="Contipo" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="Conporcentaje" class="java.math.BigDecimal">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="Conmonto" class="java.math.BigDecimal">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="Conaplica" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="Conestado" class="java.lang.Boolean">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch">
+			<staticText>
+				<reportElement x="254" y="15" width="314" height="43" uuid="4aee0ef5-4229-451e-8376-80c64b1b1a43"/>
+				<textElement>
+					<font size="24"/>
+				</textElement>
+				<text><![CDATA[Reportes Concepto Planilla]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="35" splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="61" splitType="Stretch">
+			<staticText>
+				<reportElement x="14" y="15" width="100" height="20" uuid="2a40ba5e-f5fc-4345-a980-e35bcae741c1"/>
+				<textElement>
+					<font isBold="true" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[Concodigo]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="135" y="15" width="100" height="20" uuid="80f9005d-6de6-403e-85ca-314beb2df4f8"/>
+				<textElement>
+					<font isBold="true" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[Connombre]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="254" y="15" width="100" height="20" uuid="d64b0130-e661-4178-b9d1-0c1ca3135657"/>
+				<textElement>
+					<font isBold="true" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[Contipo]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="368" y="15" width="100" height="20" uuid="8816b56e-799e-42c8-82f2-a0f207ef95ee"/>
+				<textElement>
+					<font isBold="true" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[Conporcentaje]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="487" y="15" width="100" height="20" uuid="37f991c3-a982-4bdb-9614-add3dc2a36e3"/>
+				<textElement>
+					<font isBold="true" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[Conmonto]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="606" y="15" width="100" height="20" uuid="c268354d-caa6-4e68-bd66-3a7f0b5dc98c"/>
+				<textElement>
+					<font isBold="true" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[Conaplica]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="706" y="15" width="100" height="20" uuid="cceb4895-cf69-4416-a8db-d75080e5fec8"/>
+				<textElement>
+					<font isBold="true" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[Conestado]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="125" splitType="Stretch">
+			<textField>
+				<reportElement x="14" y="44" width="100" height="20" uuid="1e594cd1-48ec-4da6-bdb7-e568e2907280"/>
+				<textFieldExpression><![CDATA[$F{Concodigo}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="135" y="44" width="100" height="20" uuid="f3257268-b83c-413d-b944-cca84150012e"/>
+				<textFieldExpression><![CDATA[$F{Connombre}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="254" y="44" width="100" height="20" uuid="86ef7493-06e0-4b5b-9255-edbdd539978d"/>
+				<textFieldExpression><![CDATA[$F{Contipo}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="368" y="44" width="100" height="20" uuid="e9ea4a0b-71df-486c-a40d-42ff0c5ca24e"/>
+				<textFieldExpression><![CDATA[$F{Conporcentaje}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="487" y="44" width="100" height="20" uuid="e9802670-1483-435f-99a9-67adf1ea7777"/>
+				<textFieldExpression><![CDATA[$F{Conmonto}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="606" y="44" width="100" height="20" uuid="607a2426-567b-41d6-a645-f2070790a49d"/>
+				<textFieldExpression><![CDATA[$F{Conaplica}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="706" y="44" width="100" height="20" uuid="7a98fd9c-7201-48c4-b7e0-5ba9e9eeee1e"/>
+				<textFieldExpression><![CDATA[$F{Conestado}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>

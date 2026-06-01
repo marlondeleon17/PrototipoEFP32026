@@ -1,0 +1,20 @@
+[OPTIONS]
+Compatibility=1.1 or later
+Compiled file=AyudasProveedores.chm
+Contents file=ayudasdeProveedores.hhc
+Default Window=pruebaAyudasParaProveedores
+Display compile progress=No
+Language=0x100a Español (Guatemala)
+
+[WINDOWS]
+pruebaAyudasParaProveedores="Capacitación - Ayudas","ayudasdeProveedores.hhc",,"MDI.html","MDI.html","Cliente.html","Cliente","Vehiculo.html","Vehiculo",0x23520,,0xc387e,,,,,,,,0
+
+
+[FILES]
+Cliente.html
+MDI.html
+Vehiculo.html
+Venta.html
+
+[INFOTYPES]
+

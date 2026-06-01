@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="595" pageHeight="842" whenNoDataType="NoDataSection" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="1c4341cb-0fb9-4e41-b50f-2d62a2cf5e7c">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="30"/>
+	<queryString language="SQL">
+		<![CDATA[SELECT * FROM sig.bodegas;]]>
+	</queryString>
+	<field name="bodegaid" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="Bodnombre" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="Bodubicacion" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch">
+			<staticText>
+				<reportElement x="102" y="12" width="346" height="47" uuid="634e09f3-6c73-44c0-85a5-138bd0b04f17"/>
+				<textElement>
+					<font size="28"/>
+				</textElement>
+				<text><![CDATA[REPORTE DE BODEGAS]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="35" splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="61" splitType="Stretch">
+			<staticText>
+				<reportElement x="2" y="2" width="100" height="20" uuid="e3bf1bca-bb97-462a-b063-ad7099c77e24"/>
+				<text><![CDATA[bodegaid]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="175" y="0" width="100" height="20" uuid="0c49f780-4f7f-4117-80e8-26010504f0df"/>
+				<text><![CDATA[Bodnombre]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="360" y="0" width="100" height="20" uuid="42059429-0278-4301-8989-d10b0276c47d"/>
+				<text><![CDATA[Bodubicacion]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="125" splitType="Stretch">
+			<textField>
+				<reportElement x="2" y="0" width="100" height="20" uuid="a9d19035-dcf5-4a06-baff-ec458fc87212"/>
+				<textFieldExpression><![CDATA[$F{bodegaid}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="175" y="0" width="100" height="20" uuid="7b03c4b0-c30a-494c-920c-ee93b2fd9cea"/>
+				<textFieldExpression><![CDATA[$F{Bodnombre}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="360" y="0" width="100" height="20" uuid="692daeaa-1d3d-4356-a731-636210b9bdab"/>
+				<textFieldExpression><![CDATA[$F{Bodubicacion}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+	<noData>
+		<band height="50">
+			<staticText>
+				<reportElement x="102" y="0" width="351" height="39" uuid="c4e7ae27-b23a-4e7c-87df-9de4635b9ce6"/>
+				<textElement>
+					<font size="22"/>
+				</textElement>
+				<text><![CDATA[NO HAY DATOS PARA MOSTRAR]]></text>
+			</staticText>
+		</band>
+	</noData>
+</jasperReport>

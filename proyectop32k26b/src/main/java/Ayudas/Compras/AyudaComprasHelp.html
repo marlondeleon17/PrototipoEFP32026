@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <title>Instructivo del modulo compras</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <style>
+            body {
+                font-family: Arial, sans-serif;
+                margin: 30px;
+                background-color: #f5f5f5;
+                color: #222;
+            }
+
+            h1 {
+                text-align: center;
+                color: #1f4e79;
+            }
+
+            h2 {
+                color: #2f5597;
+                margin-top: 30px;
+            }
+
+            h3 {
+                color: #333;
+                margin-top: 20px;
+            }
+
+            p {
+                font-size: 16px;
+                line-height: 1.5;
+            }
+
+            table {
+                width: 100%;
+                border-collapse: collapse;
+                margin-top: 15px;
+                background-color: white;
+            }
+
+            th {
+                background-color: #1f4e79;
+                color: white;
+                padding: 10px;
+                border: 1px solid #ccc;
+            }
+
+            td {
+                padding: 10px;
+                border: 1px solid #ccc;
+            }
+
+            tr:nth-child(even) {
+                background-color: #eeeeee;
+            }
+
+            .nota {
+                background-color: #fff3cd;
+                border-left: 5px solid #ffc107;
+                padding: 10px;
+                margin-top: 15px;
+            }
+
+            .seccion {
+                background-color: white;
+                padding: 20px;
+                border-radius: 8px;
+                margin-bottom: 20px;
+                box-shadow: 0 0 5px rgba(0,0,0,0.1);
+            }
+
+            .campo-gris {
+                background-color: #d9d9d9;
+                padding: 2px 6px;
+                border-radius: 4px;
+            }
+        </style>
+    </head>
+
+    <body>
+
+        <h1>Instructivo del modulo compras</h1>
+
+        <div class="seccion">
+            <h2>Registro de compras</h2>
+
+            <h3>Paso 1: Llenar los campos del formulario</h3>
+
+            <p>
+                Ingrese los datos solicitados en el formulario de compras. Los campos grises
+                no se deben escribir manualmente, porque el sistema los calcula o los genera
+                de forma automatica.
+            </p>
+
+            <p>
+                La siguiente tabla muestra los campos del formulario con nombres sencillos
+                y el tipo de dato que se debe ingresar.
+            </p>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Campo del formulario</th>
+                        <th>Tipo de dato aceptado</th>
+                        <th>Explicacion</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <tr>
+                        <td>ID de factura</td>
+                        <td>Numero entero</td>
+                        <td>Identifica una factura ya registrada. Normalmente lo genera el sistema.</td>
+                    </tr>
+
+                    <tr>
+                        <td>Numero de factura</td>
+                        <td>Letras, numeros y signos basicos</td>
+                        <td>Codigo o numero escrito en la factura. No debe repetirse.</td>
+                    </tr>
+
+                    <tr>
+                        <td>ID de proveedor</td>
+                        <td>Numero entero</td>
+                        <td>Codigo del proveedor registrado en el sistema.</td>
+                    </tr>
+
+                    <tr>
+                        <td>Estado</td>
+                        <td>Letras, numeros y signos basicos</td>
+                        <td>Estado de la factura. Ejemplo: Vigente, Anulada o Pendiente.</td>
+                    </tr>
+
+                    <tr>
+                        <td>Subtotal de factura</td>
+                        <td>Numero decimal</td>
+                        <td>Campo gris. Se calcula automaticamente con base en cantidad y precio.</td>
+                    </tr>
+
+                    <tr>
+                        <td>IVA</td>
+                        <td>Numero decimal</td>
+                        <td>Campo gris. Se calcula automaticamente.</td>
+                    </tr>
+
+                    <tr>
+                        <td>Total</td>
+                        <td>Numero decimal</td>
+                        <td>Campo gris. Muestra la suma del subtotal mas el IVA.</td>
+                    </tr>
+
+                    <tr>
+                        <td>ID de detalle</td>
+                        <td>Numero entero</td>
+                        <td>Identifica un detalle ya registrado. Normalmente lo genera el sistema.</td>
+                    </tr>
+
+                    <tr>
+                        <td>ID de producto</td>
+                        <td>Numero entero</td>
+                        <td>Codigo del producto registrado en el sistema.</td>
+                    </tr>
+
+                    <tr>
+                        <td>Cantidad de producto</td>
+                        <td>Numero decimal</td>
+                        <td>Cantidad comprada del producto.</td>
+                    </tr>
+
+                    <tr>
+                        <td>Precio unitario de producto</td>
+                        <td>Numero decimal</td>
+                        <td>Precio de una unidad del producto.</td>
+                    </tr>
+
+                    <tr>
+                        <td>Tabla de facturas</td>
+                        <td>Solo lectura</td>
+                        <td>Muestra las facturas registradas.</td>
+                    </tr>
+
+                    <tr>
+                        <td>Tabla de detalles</td>
+                        <td>Solo lectura</td>
+                        <td>Muestra los detalles de las facturas registradas.</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="nota">
+                <strong>Nota:</strong> El ID de proveedor y el ID de producto deben existir
+                previamente en el sistema. Si no existen, la compra no podra registrarse.
+            </div>
+
+            <h3>Paso 2: Presionar el boton Calcular gastos</h3>
+
+            <p>
+                Despues de ingresar el precio unitario y la cantidad del producto,
+                presione el boton <strong>Calcular gastos</strong>. El sistema calculara
+                el subtotal, el IVA y el total.
+            </p>
+
+            <h3>Paso 3: Presionar el boton Registrar</h3>
+
+            <p>
+                Despues de revisar que los datos sean correctos, presione
+                <strong>Registrar</strong>. Esta accion guarda la factura y su detalle
+                en la base de datos.
+            </p>
+        </div>
+
+        <div class="seccion">
+            <h2>Consulta, cambios y eliminacion</h2>
+
+            <h3>Paso 1: Escribir el ID correspondiente</h3>
+
+            <p>
+                Para buscar, actualizar o eliminar una factura, escriba el ID de factura
+                en el campo disponible para ello.
+            </p>
+
+            <p>
+                Si desea actualizar un detalle especifico, escriba tambien el ID de detalle.
+                Este ID se puede consultar en la tabla de detalles.
+            </p>
+
+            <h3>Paso 2: Presionar el boton requerido</h3>
+
+            <p>
+                Luego de escribir el ID necesario, presione el boton de la operacion deseada.
+            </p>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Boton</th>
+                        <th>Funcion</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <tr>
+                        <td>Buscar</td>
+                        <td>Busca una factura por su ID y muestra sus datos en el formulario.</td>
+                    </tr>
+
+                    <tr>
+                        <td>Actualizar</td>
+                        <td>Modifica los datos de la factura y del detalle indicado.</td>
+                    </tr>
+
+                    <tr>
+                        <td>Eliminar</td>
+                        <td>Elimina la factura seleccionada y sus detalles relacionados.</td>
+                    </tr>
+
+                    <tr>
+                        <td>Reporte</td>
+                        <td>Genera o muestra el reporte del modulo, si esta disponible.</td>
+                    </tr>
+
+                    <tr>
+                        <td>Help</td>
+                        <td>Abre este instructivo de ayuda.</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="nota">
+                <strong>Importante:</strong> Antes de actualizar o eliminar, verifique que
+                el ID ingresado corresponda al registro correcto.
+            </div>
+        </div>
+
+    </body>
+</html>

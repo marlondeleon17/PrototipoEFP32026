@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="595" pageHeight="842" whenNoDataType="NoDataSection" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="8ffdf6c4-db66-4dd1-b396-ac08a10ab9af">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="29"/>
+	<queryString language="SQL">
+		<![CDATA[SELECT * FROM sig.arribosmercancia;]]>
+	</queryString>
+	<field name="Arriboid" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="Procodigo" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="Arrfechaarribo" class="java.time.LocalDateTime">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="Arrestadoverificacion" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch">
+			<staticText>
+				<reportElement x="79" y="13" width="387" height="50" uuid="feeed935-9e5f-4cb0-94ae-2483f1dbb5b8"/>
+				<textElement>
+					<font size="20"/>
+				</textElement>
+				<text><![CDATA[REPORTE DE ARRIBOS DE MERCANCIA]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="35" splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="61" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="2" width="100" height="20" uuid="da9bd7e7-9d7d-478c-a02e-5dcb809e4990"/>
+				<text><![CDATA[Arriboid]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="142" y="2" width="100" height="20" uuid="126a51c2-cb03-4d6f-a56e-9b5dd3e01de0"/>
+				<text><![CDATA[Procodigo]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="289" y="2" width="100" height="20" uuid="6b19ae97-0265-453a-93e6-a18ff4007131"/>
+				<text><![CDATA[Arrfechaarribo]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="455" y="2" width="100" height="20" uuid="436a5804-ea7d-4bc2-ae46-af2bea9e48cd"/>
+				<text><![CDATA[Arrestadoverificacion]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="125" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="0" width="100" height="20" uuid="30f54a99-c545-4e45-acb2-8d8fd49437df"/>
+				<textFieldExpression><![CDATA[$F{Arriboid}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="142" y="0" width="100" height="20" uuid="0daf9a9c-d2a5-4d38-bd2f-5211062a9c19"/>
+				<textFieldExpression><![CDATA[$F{Procodigo}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="289" y="0" width="100" height="20" uuid="cf9e74a0-3de3-4687-9081-57c2c88759e8"/>
+				<textFieldExpression><![CDATA[""+$F{Arrfechaarribo}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="455" y="0" width="100" height="20" uuid="1103ec6c-6612-4a26-8ef9-5d7b08358fe0"/>
+				<textFieldExpression><![CDATA[$F{Arrestadoverificacion}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+	<noData>
+		<band height="50">
+			<staticText>
+				<reportElement x="114" y="0" width="324" height="34" uuid="136662ea-0948-4f13-ae6a-417a16e28dff"/>
+				<textElement>
+					<font size="20"/>
+				</textElement>
+				<text><![CDATA[NO HAY DATOS PARA MOSTRAR]]></text>
+			</staticText>
+		</band>
+	</noData>
+</jasperReport>

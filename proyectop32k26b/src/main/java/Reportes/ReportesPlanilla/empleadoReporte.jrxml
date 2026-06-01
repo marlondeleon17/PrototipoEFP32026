@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="ec42c97c-39cf-4266-a619-d09a0a9baaff">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<queryString language="SQL">
+		<![CDATA[SELECT * FROM sig.empleados;]]>
+	</queryString>
+	<field name="Empcodigo" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="Empnombre" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="Empdpi" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="Puecodigo" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="Empfecha_ingreso" class="java.sql.Date">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="Empestado" class="java.lang.Boolean">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch">
+			<staticText>
+				<reportElement x="259" y="19" width="242" height="36" uuid="e05700df-97db-4faf-a29e-96fdd442db69"/>
+				<textElement>
+					<font size="24"/>
+				</textElement>
+				<text><![CDATA[Reportes empleados]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="35" splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="61" splitType="Stretch">
+			<staticText>
+				<reportElement x="19" y="12" width="100" height="20" uuid="c498ad84-5ce3-4e38-8cd8-15be484c228b"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Codigo]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="146" y="12" width="100" height="20" uuid="a1949cea-e98f-4c12-9f51-148af136671d"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Nombre]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="277" y="12" width="100" height="20" uuid="559728cb-3654-41ca-94b8-f0e29574bb72"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[DPI]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="401" y="12" width="100" height="20" uuid="73cc8828-7153-428c-8933-1c971f8caac9"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Puesto codigo]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="538" y="12" width="100" height="20" uuid="60578e5d-7154-4db3-90db-8933302a3a8d"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Fecha Ingreso]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="689" y="12" width="100" height="20" uuid="d0d6f602-47fb-4add-bee9-206f8ed57635"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Estado]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="125" splitType="Stretch">
+			<textField>
+				<reportElement x="19" y="55" width="100" height="20" uuid="ea756016-a25f-4c84-83ec-f6dc4d6af0ae"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{Empcodigo}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="146" y="55" width="100" height="20" uuid="b3e8b9c7-7a45-44c1-ba39-517a1c0ce6c2"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{Empnombre}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="277" y="55" width="100" height="20" uuid="d35257f0-dcf5-47b1-ad8a-5605ec9c9da2"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{Empdpi}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="401" y="55" width="100" height="20" uuid="f7e25b77-1ab9-44a4-813f-af4c0768a72f"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{Puecodigo}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="538" y="55" width="100" height="20" uuid="b36638ee-8850-42a5-9e46-10896bd79ed2"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{Empfecha_ingreso}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="689" y="55" width="100" height="20" uuid="22803a1e-49c3-48c9-95a0-f98b390c471d"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{Empestado}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>

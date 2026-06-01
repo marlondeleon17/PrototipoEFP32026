@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="f5be94e9-542f-4e1a-bd10-eca85b132489">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<queryString language="SQL">
+		<![CDATA[SELECT * FROM `conciliacionbancaria`]]>
+	</queryString>
+	<field name="Conbid" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="conbfecha" class="java.time.LocalDateTime">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="Conbsaldosistema" class="java.math.BigDecimal">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="Conbsaldobanco" class="java.math.BigDecimal">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="Conbdiferencia" class="java.math.BigDecimal">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="CBANid" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="Catesid" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch"/>
+	</title>
+	<pageHeader>
+		<band height="35" splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="61" splitType="Stretch">
+			<staticText>
+				<reportElement x="19" y="2" width="100" height="20" uuid="d80dd162-37b3-4f0b-91bd-cd5658d63951"/>
+				<text><![CDATA[Conbid]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="19" y="41" width="100" height="20" uuid="2d6dd983-eea3-4729-9e90-13d6aad1762d"/>
+				<text><![CDATA[conbfecha]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="170" y="2" width="100" height="20" uuid="e67602c3-f576-474d-a11a-2a21ee603d6d"/>
+				<text><![CDATA[Conbsaldosistema]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="170" y="41" width="100" height="20" uuid="c626d98c-4761-42b6-b07b-cfab1412cadd"/>
+				<text><![CDATA[Conbsaldobanco]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="316" y="2" width="100" height="20" uuid="b7c2e667-84ef-4dc5-87cd-b84e1196e372"/>
+				<text><![CDATA[Conbdiferencia]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="316" y="41" width="100" height="20" uuid="a5a79a98-1a16-437a-a8e7-8cda11c3cdc0"/>
+				<text><![CDATA[CBANid]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="455" y="22" width="100" height="20" uuid="5adf0891-4939-4a04-977c-dc5ae0e9d3aa"/>
+				<text><![CDATA[Catesid]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="125" splitType="Stretch">
+			<textField>
+				<reportElement x="19" y="22" width="100" height="20" uuid="9988ae6b-577e-4acd-905b-c59c86f17474"/>
+				<textFieldExpression><![CDATA[$F{Conbid}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="19" y="83" width="100" height="20" uuid="fba914f5-4194-491d-9f22-cbaa1c3dcf66"/>
+				<textFieldExpression><![CDATA[""+$F{conbfecha}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="170" y="22" width="100" height="20" uuid="79d4c4e4-ca62-419a-8ec0-c5a81c218b0a"/>
+				<textFieldExpression><![CDATA[$F{Conbsaldosistema}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="170" y="83" width="100" height="20" uuid="cccca6d9-199c-4ddf-b8b9-f13032949195"/>
+				<textFieldExpression><![CDATA[$F{Conbsaldobanco}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="316" y="22" width="100" height="20" uuid="e70f923f-e70b-4f4c-ae94-300a299500aa"/>
+				<textFieldExpression><![CDATA[$F{Conbdiferencia}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="316" y="73" width="100" height="20" uuid="a6c845fb-dd15-4340-a8ac-bb2b16aff7a6"/>
+				<textFieldExpression><![CDATA[$F{CBANid}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="455" y="53" width="100" height="20" uuid="661e17cf-d65d-41f8-b268-f162d4cea05d"/>
+				<textFieldExpression><![CDATA[$F{Catesid}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>

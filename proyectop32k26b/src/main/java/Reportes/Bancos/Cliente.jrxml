@@ -1,0 +1,321 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports"
+              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+              xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports
+              http://jasperreports.sourceforge.net/xsd/jasperreport.xsd"
+              name="RCliente"
+              language="groovy"
+              pageWidth="842"
+              pageHeight="595"
+              orientation="Landscape"
+              columnWidth="802"
+              leftMargin="20"
+              rightMargin="20"
+              topMargin="20"
+              bottomMargin="20"
+              uuid="a1b2c3d4-e5f6-7890-abcd-ef1234567890">
+
+    <queryString language="SQL">
+        <![CDATA[SELECT * FROM `cliente` ORDER BY Clid]]>
+    </queryString>
+
+    <field name="Clid"         class="java.lang.Integer"/>
+    <field name="Clinombre"    class="java.lang.String"/>
+    <field name="Clinit"       class="java.lang.String"/>
+    <field name="Clitelefono"  class="java.lang.String"/>
+    <field name="Cliestado"    class="java.lang.String"/>
+    <field name="Clidireccion" class="java.lang.String"/>
+    <field name="Clicorreo"    class="java.lang.String"/>
+
+    <variable name="ROW_COLOR" class="java.lang.Boolean" resetType="None">
+        <variableExpression><![CDATA[$V{REPORT_COUNT} % 2 == 0]]></variableExpression>
+    </variable>
+
+    <background>
+        <band splitType="Stretch"/>
+    </background>
+
+    <!-- ═══════════════════ TÍTULO ═══════════════════ -->
+    <title>
+        <band height="80" splitType="Stretch">
+
+            <!-- Barra izquierda dorada -->
+            <rectangle>
+                <reportElement x="0" y="0" width="6" height="80" backcolor="#B8960C" forecolor="#B8960C"/>
+                <graphicElement fill="Solid"><pen lineWidth="0.0"/></graphicElement>
+            </rectangle>
+
+            <!-- Fondo oscuro principal -->
+            <rectangle>
+                <reportElement x="6" y="0" width="796" height="80" backcolor="#1C2233" forecolor="#1C2233"/>
+                <graphicElement fill="Solid"><pen lineWidth="0.0"/></graphicElement>
+            </rectangle>
+
+            <!-- Línea dorada inferior -->
+            <rectangle>
+                <reportElement x="6" y="74" width="796" height="2" backcolor="#B8960C" forecolor="#B8960C"/>
+                <graphicElement fill="Solid"><pen lineWidth="0.0"/></graphicElement>
+            </rectangle>
+
+            <!-- Etiqueta pequeña superior -->
+            <staticText>
+                <reportElement x="30" y="12" width="300" height="14" forecolor="#B8960C"/>
+                <textElement verticalAlignment="Middle">
+                    <font size="8"/>
+                </textElement>
+                <text><![CDATA[SISTEMA BANCARIO  ·  MÓDULO DE CLIENTES]]></text>
+            </staticText>
+
+            <!-- Título principal -->
+            <staticText>
+                <reportElement x="30" y="28" width="500" height="30" forecolor="#FFFFFF"/>
+                <textElement verticalAlignment="Middle">
+                    <font size="22" isBold="true"/>
+                </textElement>
+                <text><![CDATA[REPORTE DE CLIENTES]]></text>
+            </staticText>
+
+            <!-- Fecha dinámica -->
+            <textField pattern="dd 'de' MMMM, yyyy">
+                <reportElement x="560" y="28" width="220" height="18" forecolor="#A0A8BF"/>
+                <textElement textAlignment="Right" verticalAlignment="Middle">
+                    <font size="9"/>
+                </textElement>
+                <textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+            </textField>
+
+            <!-- Hora -->
+            <textField pattern="HH:mm 'hrs'">
+                <reportElement x="560" y="46" width="220" height="14" forecolor="#606880"/>
+                <textElement textAlignment="Right" verticalAlignment="Middle">
+                    <font size="8"/>
+                </textElement>
+                <textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+            </textField>
+
+        </band>
+    </title>
+
+    <!-- ═══════════════════ ENCABEZADO DE COLUMNAS ═══════════════════ -->
+    <columnHeader>
+        <band height="28" splitType="Stretch">
+
+            <!-- Fondo carbón -->
+            <rectangle>
+                <reportElement x="0" y="0" width="802" height="28" backcolor="#2C3347" forecolor="#2C3347"/>
+                <graphicElement fill="Solid"><pen lineWidth="0.0"/></graphicElement>
+            </rectangle>
+
+            <!-- Línea dorada inferior -->
+            <rectangle>
+                <reportElement x="0" y="26" width="802" height="2" backcolor="#B8960C" forecolor="#B8960C"/>
+                <graphicElement fill="Solid"><pen lineWidth="0.0"/></graphicElement>
+            </rectangle>
+
+            <staticText>
+                <reportElement x="4" y="0" width="40" height="28" forecolor="#D4AF37"/>
+                <textElement textAlignment="Center" verticalAlignment="Middle">
+                    <font size="8" isBold="true"/>
+                </textElement>
+                <text><![CDATA[ID]]></text>
+            </staticText>
+            <staticText>
+                <reportElement x="44" y="0" width="160" height="28" forecolor="#D4AF37"/>
+                <textElement textAlignment="Left" verticalAlignment="Middle">
+                    <font size="8" isBold="true"/>
+                </textElement>
+                <text><![CDATA[NOMBRE COMPLETO]]></text>
+            </staticText>
+            <staticText>
+                <reportElement x="204" y="0" width="90" height="28" forecolor="#D4AF37"/>
+                <textElement textAlignment="Center" verticalAlignment="Middle">
+                    <font size="8" isBold="true"/>
+                </textElement>
+                <text><![CDATA[NIT]]></text>
+            </staticText>
+            <staticText>
+                <reportElement x="294" y="0" width="100" height="28" forecolor="#D4AF37"/>
+                <textElement textAlignment="Center" verticalAlignment="Middle">
+                    <font size="8" isBold="true"/>
+                </textElement>
+                <text><![CDATA[TELÉFONO]]></text>
+            </staticText>
+            <staticText>
+                <reportElement x="394" y="0" width="70" height="28" forecolor="#D4AF37"/>
+                <textElement textAlignment="Center" verticalAlignment="Middle">
+                    <font size="8" isBold="true"/>
+                </textElement>
+                <text><![CDATA[ESTADO]]></text>
+            </staticText>
+            <staticText>
+                <reportElement x="464" y="0" width="180" height="28" forecolor="#D4AF37"/>
+                <textElement textAlignment="Left" verticalAlignment="Middle">
+                    <font size="8" isBold="true"/>
+                </textElement>
+                <text><![CDATA[DIRECCIÓN]]></text>
+            </staticText>
+            <staticText>
+                <reportElement x="644" y="0" width="154" height="28" forecolor="#D4AF37"/>
+                <textElement textAlignment="Left" verticalAlignment="Middle">
+                    <font size="8" isBold="true"/>
+                </textElement>
+                <text><![CDATA[CORREO ELECTRÓNICO]]></text>
+            </staticText>
+        </band>
+    </columnHeader>
+
+    <!-- ═══════════════════ DETALLE ═══════════════════ -->
+    <detail>
+        <band height="22" splitType="Stretch">
+
+            <!-- Fila par -->
+            <rectangle>
+                <reportElement x="0" y="0" width="802" height="22" backcolor="#F0F2F7" forecolor="#F0F2F7">
+                    <printWhenExpression><![CDATA[$V{ROW_COLOR}]]></printWhenExpression>
+                </reportElement>
+                <graphicElement fill="Solid"><pen lineWidth="0.0"/></graphicElement>
+            </rectangle>
+
+            <!-- Fila impar -->
+            <rectangle>
+                <reportElement x="0" y="0" width="802" height="22" backcolor="#FFFFFF" forecolor="#FFFFFF">
+                    <printWhenExpression><![CDATA[!$V{ROW_COLOR}]]></printWhenExpression>
+                </reportElement>
+                <graphicElement fill="Solid"><pen lineWidth="0.0"/></graphicElement>
+            </rectangle>
+
+            <!-- Acento dorado lateral -->
+            <rectangle>
+                <reportElement x="0" y="2" width="3" height="18" backcolor="#D4AF37" forecolor="#D4AF37"/>
+                <graphicElement fill="Solid"><pen lineWidth="0.0"/></graphicElement>
+            </rectangle>
+
+            <!-- Separador -->
+            <line>
+                <reportElement x="0" y="21" width="802" height="1" forecolor="#DDE0EA"/>
+            </line>
+
+            <textField isStretchWithOverflow="false">
+                <reportElement x="4" y="0" width="40" height="22" forecolor="#1C2233"/>
+                <textElement textAlignment="Center" verticalAlignment="Middle">
+                    <font size="8" isBold="true"/>
+                </textElement>
+                <textFieldExpression><![CDATA[$F{Clid}]]></textFieldExpression>
+            </textField>
+            <textField isStretchWithOverflow="false">
+                <reportElement x="44" y="0" width="160" height="22" forecolor="#1C2233"/>
+                <textElement textAlignment="Left" verticalAlignment="Middle">
+                    <font size="8" isBold="true"/>
+                </textElement>
+                <textFieldExpression><![CDATA[$F{Clinombre}]]></textFieldExpression>
+            </textField>
+            <textField isStretchWithOverflow="false">
+                <reportElement x="204" y="0" width="90" height="22" forecolor="#3A4260"/>
+                <textElement textAlignment="Center" verticalAlignment="Middle">
+                    <font size="8"/>
+                </textElement>
+                <textFieldExpression><![CDATA[$F{Clinit}]]></textFieldExpression>
+            </textField>
+            <textField isStretchWithOverflow="false">
+                <reportElement x="294" y="0" width="100" height="22" forecolor="#3A4260"/>
+                <textElement textAlignment="Center" verticalAlignment="Middle">
+                    <font size="8"/>
+                </textElement>
+                <textFieldExpression><![CDATA[$F{Clitelefono}]]></textFieldExpression>
+            </textField>
+            <textField isStretchWithOverflow="false">
+                <reportElement x="394" y="0" width="70" height="22" forecolor="#3A4260"/>
+                <textElement textAlignment="Center" verticalAlignment="Middle">
+                    <font size="8"/>
+                </textElement>
+                <textFieldExpression><![CDATA[$F{Cliestado}]]></textFieldExpression>
+            </textField>
+            <textField isStretchWithOverflow="false">
+                <reportElement x="464" y="0" width="180" height="22" forecolor="#3A4260"/>
+                <textElement textAlignment="Left" verticalAlignment="Middle">
+                    <font size="8"/>
+                </textElement>
+                <textFieldExpression><![CDATA[$F{Clidireccion}]]></textFieldExpression>
+            </textField>
+            <textField isStretchWithOverflow="false">
+                <reportElement x="644" y="0" width="154" height="22" forecolor="#185FA5"/>
+                <textElement textAlignment="Left" verticalAlignment="Middle">
+                    <font size="8"/>
+                </textElement>
+                <textFieldExpression><![CDATA[$F{Clicorreo}]]></textFieldExpression>
+            </textField>
+        </band>
+    </detail>
+
+    <columnFooter>
+        <band height="6" splitType="Stretch"/>
+    </columnFooter>
+
+    <!-- ═══════════════════ PIE DE PÁGINA ═══════════════════ -->
+    <pageFooter>
+        <band height="28" splitType="Stretch">
+
+            <line>
+                <reportElement x="0" y="0" width="802" height="1" forecolor="#B8960C"/>
+            </line>
+
+            <staticText>
+                <reportElement x="0" y="4" width="300" height="18" forecolor="#8890A8"/>
+                <textElement verticalAlignment="Middle">
+                    <font size="8"/>
+                </textElement>
+                <text><![CDATA[Sistema Bancario  —  Reporte de Clientes]]></text>
+            </staticText>
+
+            <textField>
+                <reportElement x="300" y="4" width="202" height="18" forecolor="#3A4260"/>
+                <textElement textAlignment="Center" verticalAlignment="Middle">
+                    <font size="8" isBold="true"/>
+                </textElement>
+                <textFieldExpression><![CDATA["Página  " + $V{PAGE_NUMBER} + "  /  " + $V{PAGE_COUNT}]]></textFieldExpression>
+            </textField>
+
+            <staticText>
+                <reportElement x="502" y="4" width="300" height="18" forecolor="#8890A8"/>
+                <textElement textAlignment="Right" verticalAlignment="Middle">
+                    <font size="8"/>
+                </textElement>
+                <text><![CDATA[Documento generado automáticamente  —  Uso interno]]></text>
+            </staticText>
+        </band>
+    </pageFooter>
+
+    <!-- ═══════════════════ RESUMEN ═══════════════════ -->
+    <summary>
+        <band height="50" splitType="Stretch">
+
+            <rectangle>
+                <reportElement x="0" y="10" width="802" height="36" backcolor="#1C2233" forecolor="#1C2233"/>
+                <graphicElement fill="Solid"><pen lineWidth="0.0"/></graphicElement>
+            </rectangle>
+
+            <rectangle>
+                <reportElement x="0" y="10" width="5" height="36" backcolor="#B8960C" forecolor="#B8960C"/>
+                <graphicElement fill="Solid"><pen lineWidth="0.0"/></graphicElement>
+            </rectangle>
+
+            <staticText>
+                <reportElement x="20" y="10" width="200" height="36" forecolor="#A0A8BF"/>
+                <textElement verticalAlignment="Middle">
+                    <font size="9"/>
+                </textElement>
+                <text><![CDATA[TOTAL DE CLIENTES REGISTRADOS]]></text>
+            </staticText>
+
+            <textField>
+                <reportElement x="220" y="10" width="80" height="36" forecolor="#D4AF37"/>
+                <textElement verticalAlignment="Middle">
+                    <font size="18" isBold="true"/>
+                </textElement>
+                <textFieldExpression><![CDATA[$V{REPORT_COUNT}]]></textFieldExpression>
+            </textField>
+
+        </band>
+    </summary>
+
+</jasperReport>

@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="595" pageHeight="842" whenNoDataType="NoDataSection" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="c34e167c-7614-4d22-9ab3-563c709d76af">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="26"/>
+	<queryString language="SQL">
+		<![CDATA[SELECT * FROM sig.envios;]]>
+	</queryString>
+	<field name="Envid" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="Pedid" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="Tranid" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="Envfechasalida" class="java.time.LocalDateTime">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="Envnumeroguia" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch">
+			<staticText>
+				<reportElement x="132" y="21" width="321" height="41" uuid="75f4799b-b7dd-4d80-8704-982827ca8b23"/>
+				<textElement>
+					<font size="26"/>
+				</textElement>
+				<text><![CDATA[REPORTE DE ENVIOS]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="35" splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="57" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="60" height="20" uuid="133969a8-7b15-4fa8-8f21-905ea09672b9"/>
+				<text><![CDATA[Envid]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="90" y="0" width="57" height="20" uuid="6e521352-16b9-44b8-b3ed-25383e0cc53d"/>
+				<text><![CDATA[Pedid]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="177" y="0" width="62" height="20" uuid="8a68acef-4e03-41dd-8d2c-85f1189b3b20"/>
+				<text><![CDATA[Tranid]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="267" y="0" width="100" height="20" uuid="f6b4f93b-feaf-4bbd-9906-1bec01742f36"/>
+				<text><![CDATA[Envfechasalida]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="410" y="0" width="100" height="20" uuid="0eb53f6b-a352-49c0-bf7e-f2404d4f2fdf"/>
+				<text><![CDATA[Envnumeroguia]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="125" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="0" width="60" height="20" uuid="984748cd-4ffb-4f3c-b612-6fcc8f16c4ab"/>
+				<textFieldExpression><![CDATA[$F{Envid}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="90" y="0" width="57" height="20" uuid="7ec6f9eb-ead5-443a-8572-2ae5c91d2377"/>
+				<textFieldExpression><![CDATA[$F{Pedid}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="177" y="0" width="62" height="20" uuid="e84d7316-1bd5-45b3-b9f3-a05a23b5da29"/>
+				<textFieldExpression><![CDATA[$F{Tranid}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="267" y="0" width="100" height="20" uuid="398aa73e-bb56-46bb-86d5-35cc8da5a145"/>
+				<textFieldExpression><![CDATA[""+$F{Envfechasalida}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="410" y="0" width="100" height="20" uuid="cd8316ee-5f1a-4439-a90e-811243314d0c"/>
+				<textFieldExpression><![CDATA[$F{Envnumeroguia}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+	<noData>
+		<band height="50">
+			<staticText>
+				<reportElement x="79" y="0" width="431" height="41" uuid="e2c99bca-b62f-486a-9d20-0a129c2667cb"/>
+				<textElement>
+					<font size="26"/>
+				</textElement>
+				<text><![CDATA[NO HAY DATOS PARA MOSTRAR]]></text>
+			</staticText>
+		</band>
+	</noData>
+</jasperReport>

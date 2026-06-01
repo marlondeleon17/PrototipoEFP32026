@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="f733241b-253f-42ed-8f0d-ccbc33847880">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<queryString language="SQL">
+		<![CDATA[SELECT * FROM sig.conceptosexcepcion;]]>
+	</queryString>
+	<field name="Exccodigo" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="Concodigo" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="Empcodigo" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch">
+			<staticText>
+				<reportElement x="118" y="16" width="333" height="37" uuid="6832c50f-92a9-42b5-ab75-a9703fc455fd"/>
+				<textElement>
+					<font size="24"/>
+				</textElement>
+				<text><![CDATA[Reporte Concepto Excepción]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="35" splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="61" splitType="Stretch">
+			<staticText>
+				<reportElement x="18" y="2" width="100" height="20" uuid="6a929ee6-adf0-40ed-a410-e90a47bde37c"/>
+				<text><![CDATA[Código]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="227" y="2" width="100" height="20" uuid="434c1c60-71d0-49a1-a341-0d95c1924d31"/>
+				<text><![CDATA[Código Concepto]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="422" y="2" width="100" height="20" uuid="f1a5af05-21b7-4337-9103-d50ec3543bf2"/>
+				<text><![CDATA[Código Empleado]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="125" splitType="Stretch">
+			<textField>
+				<reportElement x="18" y="43" width="100" height="20" uuid="0f04253c-f369-4e2d-b379-625a9cc5db69"/>
+				<textFieldExpression><![CDATA[$F{Exccodigo}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="227" y="43" width="100" height="20" uuid="b665cdfb-e2cf-4626-a1fb-6e61fef2580f"/>
+				<textFieldExpression><![CDATA[$F{Concodigo}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="422" y="43" width="100" height="20" uuid="9c1100f8-9f39-4b54-9c9d-1c13fd4b754f"/>
+				<textFieldExpression><![CDATA[$F{Empcodigo}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>
