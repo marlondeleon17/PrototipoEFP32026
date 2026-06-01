@@ -98,28 +98,26 @@ public class frmCarreras extends javax.swing.JFrame {
 
         List<clsCarreras> lista = dao.obtenerCarreras(bitacora);
 
-        String[] dato = new String[6];
+        String[] dato = new String[4];
 
-        for (clsCarreras e : lista) {
+for (clsCarreras e : lista) {
 
-            dato[0] = String.valueOf(e.getEmpcodigo());
-            dato[1] = e.getEmpnombre();
-            dato[2] = String.valueOf(e.getPuecodigo());
-            dato[3] = String.valueOf(e.getPuecodigo());
-            
+    dato[0] = e.getCodigoCarrera();
+    dato[1] = e.getNombreCarrera();
+    dato[2] = e.getCodigoFacultad();
+    dato[3] = e.getEstatusCarrera();
 
-            modelo.addRow(dato);
-        }
+    modelo.addRow(dato);
+}
     }
     
     
     public void limpiarTextos() {
 
         txtCodigo.setText("");
-        txtNombre.setText("");
-        txtDPI.setText("");
-        txtEstatus.setText("");
-        txtBuscar.setText("");
+    txtNombre.setText("");
+    txtEstatus.setText("");
+    txtBuscar.setText("");
     }
 
     /**
@@ -544,34 +542,15 @@ public class frmCarreras extends javax.swing.JFrame {
 
         try {
 
-            clsCarreras empleado = new clsCarreras();
+            carrera.setCodigoCarrera(txtCodigo.getText());
+carrera.setNombreCarrera(txtNombre.getText());
+carrera.setCodigoFacultad(txtEstatus.getText());
 
-            empleado.setEmpcodigo(
-                Integer.parseInt(txtCodigo.getText())
-            );
-
-            empleado.setEmpnombre(
-                txtNombre.getText().trim()
-            );
-
-            empleado.setEmpdpi(
-                txtDPI.getText().trim()
-            );
-
-            empleado.setPuecodigo(
-                Integer.parseInt(txtEstatus.getText())
-            );
-
-            
-
-            if(cboEstatus.getSelectedItem().toString().equals("Activo")){
-
-                empleado.setEmpestado(1);
-
-            }else{
-
-                empleado.setEmpestado(0);
-            }
+if(cboEstatus.getSelectedItem().equals("Activo")){
+    carrera.setEstatusCarrera("A");
+}else{
+    carrera.setEstatusCarrera("I");
+}
 
             CarrerasDAO dao = new CarrerasDAO();
 
@@ -746,7 +725,7 @@ public class frmCarreras extends javax.swing.JFrame {
         try {
             conn = Conexion.getConnection();
             report = JasperCompileManager.compileReport(new File("").getAbsolutePath()
-                + "/src/main/java/Reportes/ReportesPlanilla/Carreras.jrxml");
+                + "/src/main/java/Reportes/ReportesPlanilla/empleadoReporte.jrxml");
             print = JasperFillManager.fillReport(report, p, conn);
             JasperViewer view = new JasperViewer(print, false);
             view.setTitle("Reporte Prueba");

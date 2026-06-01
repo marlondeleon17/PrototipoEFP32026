@@ -18,315 +18,200 @@ import java.util.ArrayList;
 public class CarrerasDAO {
 
     private static final String SQL_SELECT =
-            "SELECT empcodigo, empnombre, empdpi, puecodigo, empfecha_ingreso, empestado FROM empleados";
+        "SELECT codigo_carrera, nombre_carrera, codigo_facultad, estatus_carrera FROM carreras";
 
-    private static final String SQL_INSERT =
-            "INSERT INTO empleados (empnombre, empdpi, puecodigo, empfecha_ingreso, empestado) VALUES(?, ?, ?, ?, ?)";
+private static final String SQL_INSERT =
+        "INSERT INTO carreras(codigo_carrera, nombre_carrera, codigo_facultad, estatus_carrera) VALUES(?,?,?,?)";
 
-    private static final String SQL_UPDATE =
-            "UPDATE empleados SET empnombre=?, empdpi=?, puecodigo=?, empfecha_ingreso=?, empestado=? WHERE empcodigo=?";
+private static final String SQL_UPDATE =
+        "UPDATE carreras SET nombre_carrera=?, codigo_facultad=?, estatus_carrera=? WHERE codigo_carrera=?";
 
-    private static final String SQL_DELETE =
-            "DELETE FROM empleados WHERE empcodigo=?";
+private static final String SQL_DELETE =
+        "DELETE FROM carreras WHERE codigo_carrera=?";
 
-    private static final String SQL_SELECT_ID =
-            "SELECT empcodigo, empnombre, empdpi, puecodigo, empfecha_ingreso, empestado FROM empleados WHERE empcodigo=?";
+private static final String SQL_SELECT_ID =
+        "SELECT codigo_carrera, nombre_carrera, codigo_facultad, estatus_carrera FROM carreras WHERE codigo_carrera=?";
 
-
-    private static final String SQL_INSERT_BITACORA =
-            "INSERT INTO bitacora(usuid, aplcodigo, bitfecha, bitip, bitequipo, bitaccion) VALUES(?, ?, ?, ?, ?, ?)";
-
-    private static final String SQL_SELECT_BITACORA =
-            "SELECT bitcodigo, usuid, aplcodigo, bitfecha, bitip, bitequipo, bitaccion FROM bitacora";
-
-    private static final String SQL_UPDATE_BITACORA =
-            "UPDATE bitacora SET usuid=?, aplcodigo=?, bitfecha=?, bitip=?, bitequipo=?, bitaccion=? WHERE bitcodigo=?";
-
-    private static final String SQL_DELETE_BITACORA =
-            "DELETE FROM bitacora WHERE bitcodigo=?";
-
-
-    public List<clsCarreras> obtenerEmpleados(clsBitacora bitacora) {
-        Connection conn = null;
-        PreparedStatement stmt = null;
-        ResultSet rs = null;
-        List<clsCarreras> lista = new ArrayList<>();
-
-        try {
-            conn = Conexion.getConnection();
-            stmt = conn.prepareStatement(SQL_SELECT);
-            rs = stmt.executeQuery();
-
-            while (rs.next()) {
-                clsCarreras e = new clsCarreras();
-
-                e.setEmpcodigo(rs.getInt("empcodigo"));
-                e.setEmpnombre(rs.getString("empnombre"));
-                e.setEmpdpi(rs.getString("empdpi"));
-                e.setPuecodigo(rs.getInt("puecodigo"));
-                e.setEmpfecha_ingreso(rs.getDate("empfecha_ingreso"));
-                e.setEmpestado(rs.getInt("empestado"));
-
-                lista.add(e);
-            }
-
-            bitacora.setBitaccion("SELECT empleados");
-            insertarBitacora(bitacora);
-
-        } catch (SQLException e) {
-            e.printStackTrace(System.out);
-        } finally {
-            Conexion.close(rs);
-            Conexion.close(stmt);
-            Conexion.close(conn);
-        }
-
-        return lista;
-    }
-
-    public int insertarEmpleado(clsCarreras empleado, clsBitacora bitacora) {
-        Connection conn = null;
-        PreparedStatement stmt = null;
-        int rows = 0;
-
-        try {
-            conn = Conexion.getConnection();
-            stmt = conn.prepareStatement(SQL_INSERT);
-
-            stmt.setString(1, empleado.getEmpnombre());
-            stmt.setString(2, empleado.getEmpdpi());
-            stmt.setInt(3, empleado.getPuecodigo());
-            stmt.setDate(4, (Date) empleado.getEmpfecha_ingreso());
-            stmt.setInt(5, empleado.getEmpestado());
-
-            rows = stmt.executeUpdate();
-
-            bitacora.setBitaccion("INSERT empleado " + empleado.getEmpnombre());
-            insertarBitacora(bitacora);
-
-        } catch (SQLException e) {
-            e.printStackTrace(System.out);
-        } finally {
-            Conexion.close(stmt);
-            Conexion.close(conn);
-        }
-
-        return rows;
-    }
-
-    public int actualizarEmpleado(clsCarreras empleado, clsBitacora bitacora) {
-        Connection conn = null;
-        PreparedStatement stmt = null;
-        int rows = 0;
-
-        try {
-            conn = Conexion.getConnection();
-            stmt = conn.prepareStatement(SQL_UPDATE);
-
-            stmt.setString(1, empleado.getEmpnombre());
-            stmt.setString(2, empleado.getEmpdpi());
-            stmt.setInt(3, empleado.getPuecodigo());
-            stmt.setDate(4, (Date) empleado.getEmpfecha_ingreso());
-            stmt.setInt(5, empleado.getEmpestado());
-            stmt.setInt(6, empleado.getEmpcodigo());
-
-            rows = stmt.executeUpdate();
-
-            bitacora.setBitaccion("UPDATE empleado " + empleado.getEmpcodigo());
-            insertarBitacora(bitacora);
-
-        } catch (SQLException e) {
-            e.printStackTrace(System.out);
-        } finally {
-            Conexion.close(stmt);
-            Conexion.close(conn);
-        }
-
-        return rows;
-    }
-
-    public int eliminarEmpleado(clsCarreras empleado, clsBitacora bitacora) {
-        Connection conn = null;
-        PreparedStatement stmt = null;
-        int rows = 0;
-
-        try {
-            conn = Conexion.getConnection();
-            stmt = conn.prepareStatement(SQL_DELETE);
-
-            stmt.setInt(1, empleado.getEmpcodigo());
-
-            rows = stmt.executeUpdate();
-
-            bitacora.setBitaccion("DELETE empleado " + empleado.getEmpcodigo());
-            insertarBitacora(bitacora);
-
-        } catch (SQLException e) {
-            e.printStackTrace(System.out);
-        } finally {
-            Conexion.close(stmt);
-            Conexion.close(conn);
-        }
-
-        return rows;
-    }
-
-    public clsCarreras obtenerEmpleadoPorId(int id, clsBitacora bitacora) {
-        Connection conn = null;
-        PreparedStatement stmt = null;
-        ResultSet rs = null;
-        clsCarreras empleado = null;
-
-        try {
-            conn = Conexion.getConnection();
-            stmt = conn.prepareStatement(SQL_SELECT_ID);
-            stmt.setInt(1, id);
-
-            rs = stmt.executeQuery();
-
-            if (rs.next()) {
-                empleado = new clsCarreras();
-
-                empleado.setEmpcodigo(rs.getInt("empcodigo"));
-                empleado.setEmpnombre(rs.getString("empnombre"));
-                empleado.setEmpdpi(rs.getString("empdpi"));
-                empleado.setPuecodigo(rs.getInt("puecodigo"));
-                empleado.setEmpfecha_ingreso(rs.getDate("empfecha_ingreso"));
-                empleado.setEmpestado(rs.getInt("empestado"));
-            }
-
-            bitacora.setBitaccion("SELECT empleado ID " + id);
-            insertarBitacora(bitacora);
-
-        } catch (SQLException e) {
-            e.printStackTrace(System.out);
-        } finally {
-            Conexion.close(rs);
-            Conexion.close(stmt);
-            Conexion.close(conn);
-        }
-
-        return empleado;
-    }
-
-
-    public int insertarBitacora(clsBitacora bitacora) {
-        Connection conn = null;
-        PreparedStatement stmt = null;
-        int rows = 0;
-
-        try {
-            conn = Conexion.getConnection();
-            stmt = conn.prepareStatement(SQL_INSERT_BITACORA);
-
-            stmt.setInt(1, bitacora.getUsucodigo());
-            stmt.setInt(2, bitacora.getAplcodigo());
-            stmt.setString(3, bitacora.getBitfecha());
-            stmt.setString(4, bitacora.getBitip());
-            stmt.setString(5, bitacora.getBitequipo());
-            stmt.setString(6, bitacora.getBitaccion());
-
-            rows = stmt.executeUpdate();
-
-        } catch (SQLException e) {
-            e.printStackTrace(System.out);
-        } finally {
-            Conexion.close(stmt);
-            Conexion.close(conn);
-        }
-
-        return rows;
-    }
-
-    public List<clsBitacora> obtenerBitacora() {
-        Connection conn = null;
-        PreparedStatement stmt = null;
-        ResultSet rs = null;
-        List<clsBitacora> lista = new ArrayList<>();
-
-        try {
-            conn = Conexion.getConnection();
-            stmt = conn.prepareStatement(SQL_SELECT_BITACORA);
-            rs = stmt.executeQuery();
-
-            while (rs.next()) {
-                clsBitacora b = new clsBitacora();
-
-                b.setBitcodigo(rs.getInt("bitcodigo"));
-                b.setUsucodigo(rs.getInt("usuid"));
-                b.setAplcodigo(rs.getInt("aplcodigo"));
-                b.setBitfecha(rs.getString("bitfecha"));
-                b.setBitip(rs.getString("bitip"));
-                b.setBitequipo(rs.getString("bitequipo"));
-                b.setBitaccion(rs.getString("bitaccion"));
-
-                lista.add(b);
-            }
-
-        } catch (SQLException e) {
-            e.printStackTrace(System.out);
-        } finally {
-            Conexion.close(rs);
-            Conexion.close(stmt);
-            Conexion.close(conn);
-        }
-
-        return lista;
-    }
-
-    public int actualizarBitacora(clsBitacora bitacora) {
-        Connection conn = null;
-        PreparedStatement stmt = null;
-        int rows = 0;
-
-        try {
-            conn = Conexion.getConnection();
-            stmt = conn.prepareStatement(SQL_UPDATE_BITACORA);
-
-            stmt.setInt(1, bitacora.getUsucodigo());
-            stmt.setInt(2, bitacora.getAplcodigo());
-            stmt.setString(3, bitacora.getBitfecha());
-            stmt.setString(4, bitacora.getBitip());
-            stmt.setString(5, bitacora.getBitequipo());
-            stmt.setString(6, bitacora.getBitaccion());
-            stmt.setInt(7, bitacora.getBitcodigo());
-
-            rows = stmt.executeUpdate();
-
-        } catch (SQLException e) {
-            e.printStackTrace(System.out);
-        } finally {
-            Conexion.close(stmt);
-            Conexion.close(conn);
-        }
-
-        return rows;
-    }
-
-    public int eliminarBitacora(clsBitacora bitacora) {
-        Connection conn = null;
-        PreparedStatement stmt = null;
-        int rows = 0;
-
-        try {
-            conn = Conexion.getConnection();
-            stmt = conn.prepareStatement(SQL_DELETE_BITACORA);
-
-            stmt.setInt(1, bitacora.getBitcodigo());
-
-            rows = stmt.executeUpdate();
-
-        } catch (SQLException e) {
-            e.printStackTrace(System.out);
-        } finally {
-            Conexion.close(stmt);
-            Conexion.close(conn);
-        }
-
-        return rows;
-    }
 
     public List<clsCarreras> obtenerCarreras(clsBitacora bitacora) {
+
+    Connection conn = null;
+    PreparedStatement stmt = null;
+    ResultSet rs = null;
+
+    List<clsCarreras> lista = new ArrayList<>();
+
+    try {
+
+        conn = Conexion.getConnection();
+        stmt = conn.prepareStatement(SQL_SELECT);
+        rs = stmt.executeQuery();
+
+        while (rs.next()) {
+
+            clsCarreras carrera = new clsCarreras();
+
+            carrera.setCodigoCarrera(rs.getString("codigo_carrera"));
+            carrera.setNombreCarrera(rs.getString("nombre_carrera"));
+            carrera.setCodigoFacultad(rs.getString("codigo_facultad"));
+            carrera.setEstatusCarrera(rs.getString("estatus_carrera"));
+
+            lista.add(carrera);
+        }
+
+        bitacora.setBitaccion("SELECT carreras");
+        insertarBitacora(bitacora);
+
+    } catch (SQLException e) {
+        e.printStackTrace(System.out);
+    } finally {
+        Conexion.close(rs);
+        Conexion.close(stmt);
+        Conexion.close(conn);
+    }
+
+    return lista;
+}
+
+    public int actualizarCarrera(clsCarreras carrera, clsBitacora bitacora) {
+
+    Connection conn = null;
+    PreparedStatement stmt = null;
+    int rows = 0;
+
+    try {
+
+        conn = Conexion.getConnection();
+        stmt = conn.prepareStatement(SQL_UPDATE);
+
+        stmt.setString(1, carrera.getNombreCarrera());
+        stmt.setString(2, carrera.getCodigoFacultad());
+        stmt.setString(3, carrera.getEstatusCarrera());
+        stmt.setString(4, carrera.getCodigoCarrera());
+
+        rows = stmt.executeUpdate();
+
+        bitacora.setBitaccion("UPDATE carrera " + carrera.getCodigoCarrera());
+        insertarBitacora(bitacora);
+
+    } catch (SQLException e) {
+        e.printStackTrace(System.out);
+    } finally {
+        Conexion.close(stmt);
+        Conexion.close(conn);
+    }
+
+    return rows;
+}
+
+   public int eliminarCarrera(clsCarreras carrera, clsBitacora bitacora) {
+
+    Connection conn = null;
+    PreparedStatement stmt = null;
+    int rows = 0;
+
+    try {
+
+        conn = Conexion.getConnection();
+        stmt = conn.prepareStatement(SQL_DELETE);
+
+        stmt.setString(1, carrera.getCodigoCarrera());
+
+        rows = stmt.executeUpdate();
+
+        bitacora.setBitaccion("DELETE carrera " + carrera.getCodigoCarrera());
+        insertarBitacora(bitacora);
+
+    } catch (SQLException e) {
+        e.printStackTrace(System.out);
+    } finally {
+        Conexion.close(stmt);
+        Conexion.close(conn);
+    }
+
+    return rows;
+}
+
+    public clsCarreras obtenerCarreraPorId(String codigo, clsBitacora bitacora) {
+
+    Connection conn = null;
+    PreparedStatement stmt = null;
+    ResultSet rs = null;
+
+    clsCarreras carrera = null;
+
+    try {
+
+        conn = Conexion.getConnection();
+        stmt = conn.prepareStatement(SQL_SELECT_ID);
+
+        stmt.setString(1, codigo);
+
+        rs = stmt.executeQuery();
+
+        if (rs.next()) {
+
+            carrera = new clsCarreras();
+
+            carrera.setCodigoCarrera(rs.getString("codigo_carrera"));
+            carrera.setNombreCarrera(rs.getString("nombre_carrera"));
+            carrera.setCodigoFacultad(rs.getString("codigo_facultad"));
+            carrera.setEstatusCarrera(rs.getString("estatus_carrera"));
+        }
+
+        bitacora.setBitaccion("SELECT carrera " + codigo);
+        insertarBitacora(bitacora);
+
+    } catch (SQLException e) {
+        e.printStackTrace(System.out);
+    } finally {
+        Conexion.close(rs);
+        Conexion.close(stmt);
+        Conexion.close(conn);
+    }
+
+    return carrera;
+}
+
+
+    public int insertarCarrera(clsCarreras carrera, clsBitacora bitacora) {
+
+    Connection conn = null;
+    PreparedStatement stmt = null;
+    int rows = 0;
+
+    try {
+
+        conn = Conexion.getConnection();
+        stmt = conn.prepareStatement(SQL_INSERT);
+
+        stmt.setString(1, carrera.getCodigoCarrera());
+        stmt.setString(2, carrera.getNombreCarrera());
+        stmt.setString(3, carrera.getCodigoFacultad());
+        stmt.setString(4, carrera.getEstatusCarrera());
+
+        rows = stmt.executeUpdate();
+
+        bitacora.setBitaccion("INSERT carrera " + carrera.getCodigoCarrera());
+        insertarBitacora(bitacora);
+
+    } catch (SQLException e) {
+        e.printStackTrace(System.out);
+    } finally {
+        Conexion.close(stmt);
+        Conexion.close(conn);
+    }
+
+    return rows;
+}
+
+    
+
+    private void insertarBitacora(clsBitacora bitacora) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    public clsCarreras obtenerCarreraId(int id, clsBitacora bitacora) {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
     

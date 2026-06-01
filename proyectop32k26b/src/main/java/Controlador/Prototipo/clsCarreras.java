@@ -4,105 +4,68 @@
  */
 package Controlador.Prototipo;
 
-import java.sql.Date;
-
-/**
- *
- * @author marlo
- */
 public class clsCarreras {
-    
-    private int empcodigo;
-    private String empnombre;
-    private String empdpi;
-    private int puecodigo;
-    private Date empfecha_ingreso;
-    private int empestado;
-    
-     public clsCarreras() {
+
+    private String codigoCarrera;
+    private String nombreCarrera;
+    private String codigoFacultad;
+    private String estatusCarrera;
+
+    public clsCarreras() {
     }
 
-    public clsCarreras(int empcodigo) {
-        this.empcodigo = empcodigo;
+    public clsCarreras(String codigoCarrera) {
+        this.codigoCarrera = codigoCarrera;
     }
 
-    public clsCarreras(String empnombre, String empdpi, int puecodigo, Date empfecha_ingreso, int empestado) {
-        this.empnombre = empnombre;
-        this.empdpi = empdpi;
-        this.puecodigo = puecodigo;
-        this.empfecha_ingreso = empfecha_ingreso;
-        this.empestado = empestado;
+    public clsCarreras(String codigoCarrera, String nombreCarrera,
+            String codigoFacultad, String estatusCarrera) {
+
+        this.codigoCarrera = codigoCarrera;
+        this.nombreCarrera = nombreCarrera;
+        this.codigoFacultad = codigoFacultad;
+        this.estatusCarrera = estatusCarrera;
     }
 
-    public clsCarreras(int empcodigo, String empnombre, String empdpi, int puecodigo, Date empfecha_ingreso, int empestado) {
-        this.empcodigo = empcodigo;
-        this.empnombre = empnombre;
-        this.empdpi = empdpi;
-        this.puecodigo = puecodigo;
-        this.empfecha_ingreso = empfecha_ingreso;
-        this.empestado = empestado;
+    public String getCodigoCarrera() {
+        return codigoCarrera;
     }
 
-    public int getEmpcodigo() {
-        return empcodigo;
+    public void setCodigoCarrera(String codigoCarrera) {
+        this.codigoCarrera = codigoCarrera;
     }
 
-    public void setEmpcodigo(int empcodigo) {
-        this.empcodigo = empcodigo;
+    public String getNombreCarrera() {
+        return nombreCarrera;
     }
 
-    public String getEmpnombre() {
-        return empnombre;
+    public void setNombreCarrera(String nombreCarrera) {
+        this.nombreCarrera = nombreCarrera;
     }
 
-    public void setEmpnombre(String empnombre) {
-        this.empnombre = empnombre;
+    public String getCodigoFacultad() {
+        return codigoFacultad;
     }
 
-    public String getEmpdpi() {
-        return empdpi;
+    public void setCodigoFacultad(String codigoFacultad) {
+        this.codigoFacultad = codigoFacultad;
     }
 
-    public void setEmpdpi(String empdpi) {
-        this.empdpi = empdpi;
+    public String getEstatusCarrera() {
+        return estatusCarrera;
     }
 
-    public int getPuecodigo() {
-        return puecodigo;
-    }
-
-    public void setPuecodigo(int puecodigo) {
-        this.puecodigo = puecodigo;
-    }
-
-    public Date getEmpfecha_ingreso() {
-        return empfecha_ingreso;
-    }
-
-    public void setEmpfecha_ingreso(Date empfecha_ingreso) {
-        this.empfecha_ingreso = empfecha_ingreso;
-    }
-
-    public int getEmpestado() {
-        return empestado;
-    }
-
-    public void setEmpestado(int empestado) {
-        this.empestado = empestado;
+    public void setEstatusCarrera(String estatusCarrera) {
+        this.estatusCarrera = estatusCarrera;
     }
 
     @Override
     public String toString() {
-        return "Empleados{" +
-                "empcodigo=" + empcodigo +
-                ", empnombre='" + empnombre + '\'' +
-                ", empdpi='" + empdpi + '\'' +
-                ", puecodigo=" + puecodigo +
-                ", empfecha_ingreso=" + empfecha_ingreso +
-                ", empestado=" + empestado +
+        return "clsCarreras{" +
+                "codigoCarrera='" + codigoCarrera + '\'' +
+                ", nombreCarrera='" + nombreCarrera + '\'' +
+                ", codigoFacultad='" + codigoFacultad + '\'' +
+                ", estatusCarrera='" + estatusCarrera + '\'' +
                 '}';
     }
-    
-    
-    
 }

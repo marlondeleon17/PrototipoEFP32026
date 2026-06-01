@@ -14,7 +14,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
-import Vista.vistaPlanilla.frmMantenimientoDepartamento;
+import Vista.PrototipoEFP32026.frmCarreras;
 import Vista.frmLogin;
 
 
@@ -274,7 +274,7 @@ public class mdiPrototipo extends javax.swing.JFrame {
 
     private void manDepartamentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_manDepartamentoActionPerformed
         // TODO add your handling code here:
-        frmMantenimientoDepartamento vista = new frmMantenimientoDepartamento();
+        frmCarreras vista = new frmCarreras();
         vista.setVisible(true);
     }//GEN-LAST:event_manDepartamentoActionPerformed
 
