@@ -25,6 +25,8 @@ import java.util.HashSet;
 
 import javax.swing.JOptionPane;
 import Vista.ComercialComprasyVentas.MdiComercio;
+
+import Vista.PrototipoEFP32026.mdiPrototipo;
 /**
  *
  * @author visitante
@@ -294,7 +296,7 @@ case "Comisiones de ventas":
     
     case "PrototipoEFP32026":
     try {
-        MdiPlanillas menu = new MdiPlanillas();
+        mdiPrototipo menu = new mdiPrototipo();
         menu.setVisible(true);
         this.dispose();
     } catch (Exception e) {
